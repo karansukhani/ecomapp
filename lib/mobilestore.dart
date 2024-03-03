@@ -1,3 +1,7 @@
+import 'package:ecommerceapp/Products/15promax.dart';
+import 'package:ecommerceapp/Products/s23ultra.dart';
+import 'package:ecommerceapp/Products/s24ultra.dart';
+import 'package:ecommerceapp/constants/sizes.dart';
 import 'package:ecommerceapp/theme/widget_themes/appbar_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,14 +10,14 @@ import 'cart.dart';
 import 'categoriespage.dart';
 import 'helpers/helper_functions.dart';
 
-class PerfumeStore extends StatelessWidget {
+class MobileStore extends StatelessWidget {
 // final TabController tabController=TabController(length: 4, vsync: AnimatedListState());
   @override
   Widget build(BuildContext context) {
     final dark = KHelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Perfume Store',
+        title: Text('Mobile Store',
             style: Theme.of(context).textTheme.headlineMedium),
         actions: [
           Stack(
@@ -86,6 +90,7 @@ class PerfumeStore extends StatelessWidget {
             ],
           ),
           Wrap(
+            spacing: 10,
             children: [
               Container(
                 height: 50,
@@ -103,15 +108,15 @@ class PerfumeStore extends StatelessWidget {
                           color: dark ? Colors.black : Colors.white,
                           borderRadius: BorderRadius.circular(100)),
                       child: Center(
-                        child: Image.asset("asset/logo/denver_logo.jpeg"),
+                        child: Image.asset("asset/logo/applelogo.png"),
                       ),
                     ),
                     Column(
                       children: [
-                        const Text("Denver",
+                        const Text("Apple",
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         Text(
-                          "300 Products",
+                          "30 Products",
                           style: Theme.of(context).textTheme.bodySmall,
                         )
                       ],
@@ -135,13 +140,13 @@ class PerfumeStore extends StatelessWidget {
                             color: dark ? Colors.black : Colors.white,
                             borderRadius: BorderRadius.circular(100)),
                         child: Center(
-                            child: Image.asset("asset/logo/919paris.jpeg"))),
+                            child: Image.asset("asset/logo/oneplus_logo.png"))),
                     Column(
                       children: [
-                        Text("919 PARIS",
+                        Text("Oneplus",
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         Text(
-                          "200 Products",
+                          "50 Products",
                           style: Theme.of(context).textTheme.bodySmall,
                         )
                       ],
@@ -164,14 +169,15 @@ class PerfumeStore extends StatelessWidget {
                         decoration: BoxDecoration(
                             color: dark ? Colors.black : Colors.white,
                             borderRadius: BorderRadius.circular(100)),
-                        child:
-                            Center(child: Image.asset("asset/logo/axe.jpeg"))),
+                        child: Center(
+                            child: Image.asset(
+                                "asset/logo/samsung_logo.jpg.webp"))),
                     Column(
                       children: [
-                        Text("AXE",
+                        Text("Samsung",
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         Text(
-                          "200 Products",
+                          "100 Products",
                           style: Theme.of(context).textTheme.bodySmall,
                         )
                       ],
@@ -194,11 +200,11 @@ class PerfumeStore extends StatelessWidget {
                         decoration: BoxDecoration(
                             color: dark ? Colors.black : Colors.white,
                             borderRadius: BorderRadius.circular(100)),
-                        child:
-                            Center(child: Image.asset("asset/logo/ajmal.png"))),
+                        child: Center(
+                            child: Image.asset("asset/logo/oppo_logo.png"))),
                     Column(
                       children: [
-                        Text("Ajmal",
+                        Text("Oppo",
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         Text(
                           "150 Products",
@@ -208,6 +214,9 @@ class PerfumeStore extends StatelessWidget {
                     )
                   ],
                 ),
+              ),
+              SizedBox(
+                height: KSizes.spaceBtwItems,
               ),
               SizedBox(
                 height: 600,
@@ -230,88 +239,125 @@ class PerfumeStore extends StatelessWidget {
                       //     Text("Adidas Yeezy Dunk Sneakers"),
                       //     Text("₹ 29000.00",style: TextStyle(fontWeight: FontWeight.bold),)
                       //   ],),),
+                      InkWell(
+                        onTap:()
+                        {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>IPH15ProMax()));
+                        },
+                        child: Container(
+                          height: 100,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                  height: 150,
+                                  child:
+                                      Image.asset("asset/image/iph15promax.jpg")),
+                              Text(
+                                "iPhone 15 Pro Max",
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              Text(
+                                "₹ 1,48,900",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      TextButton(
+                       onPressed: (){
+                         Navigator.push(context, MaterialPageRoute(builder: (context)=>S24ultra()));
+                       },
+                        child: Container(
+                          height: 300,
+                          width: 220,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                  height: 120,
+                                  child: Image.asset("asset/image/s24ultra.jpg")),
+                              Text(
+                                "Samsung Galaxy S24 Ultra",
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              Text(
+                                "₹ 1,29,965",
+                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
                       Container(
-                        height: 100,
+                        // height: 100,
                         decoration: BoxDecoration(
                             border: Border.all(color: Colors.black),
                             borderRadius: BorderRadius.circular(5)),
                         child: Column(
                           children: [
-                            SizedBox(
-                                height: 150,
-                                child: Image.asset("asset/image/denver1.jpg")),
+                            Stack(
+                              children: [
+                                SizedBox(
+                                    height: 150,
+                                    child:
+                                        Image.asset("asset/image/15pro.jpg")),
+                                Container(
+                                  color: Colors.yellowAccent,
+                                  child: Text("-5%"),
+                                )
+                              ],
+                            ),
                             Text(
-                              "Denver Hamilton Mens",
+                              "iPhone 15 Pro (256GB)",
                               style: TextStyle(color: Colors.black),
                             ),
                             Text(
-                              "₹ 350",
+                              "₹ 1,27,990",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             )
                           ],
                         ),
                       ),
-                      Container(
-                        height: 100,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                                height: 150,
-                                child: Image.asset("asset/image/denver2.jpg")),
-                            Text(
-                              "Denver Fresh Deodrant",
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            Text(
-                              "₹ 290.00",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 100,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                                height: 150,
-                                child: Image.asset("asset/image/denver3.jpg")),
-                            Text(
-                              "Denver Green Mans Deodrant",
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            Text(
-                              "₹ 290.00",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 100,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                                height: 150,
-                                child: Image.asset("asset/image/Perfume.jpg")),
-                            Text(
-                              "Ocen Perfume",
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            Text(
-                              "₹ 250.00",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            )
-                          ],
+                      TextButton(
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>S23ultra()));
+                        },
+                        child: Container(
+                          // height: 250,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: [
+                              Stack(children: [
+                                SizedBox(
+                                  height:120,
+                                    child:
+                                        Image.asset("asset/image/s23ultra.jpg")),
+                                Positioned(
+                                    left: 0,
+                                    top: 0,
+                                    child: Container(
+                                      color: Colors.yellow,
+                                      child: Text("-27%"),
+                                    ))
+                              ]),
+                              Text(
+                                "Samsung Galaxy S23 Ultra",
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              Text(
+                                "₹ 1,09,999",
+                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ]),

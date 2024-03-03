@@ -1,5 +1,6 @@
 import 'package:ecommerceapp/constants/sizes.dart';
 import 'package:ecommerceapp/constants/text_strings.dart';
+import 'package:ecommerceapp/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -89,7 +90,9 @@ class Signup extends StatelessWidget
                    ],
                  ),
                  SizedBox(height: KSizes.spaceBtwSections,),
-                 SizedBox(width: double.infinity,child: ElevatedButton(onPressed: (){}, child: Text(KTexts.createAccount)),),
+                 SizedBox(width: double.infinity,child: ElevatedButton(onPressed: (){
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginState()));
+                 }, child: Text(KTexts.createAccount)),),
                  SizedBox(height: KSizes.spaceBtwSections,),
                  Row(
                    mainAxisAlignment: MainAxisAlignment.center,
