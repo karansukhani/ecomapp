@@ -22,7 +22,7 @@ class SneakerStore extends StatelessWidget {
               IconButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CartState("")));
+                        MaterialPageRoute(builder: (context) => CartState()));
                   },
                   icon: Icon(
                     Icons.shopping_cart_rounded,

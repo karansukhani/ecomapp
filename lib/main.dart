@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
               IconButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CartState("")));
+                        MaterialPageRoute(builder: (context) => CartState()));
                   },
                   icon: Icon(
                     Icons.shopping_cart_rounded,
@@ -144,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
         //               Navigator.push(
         //                   context,
         //                   MaterialPageRoute(
-        //                       builder: (context) => CartState("")));
+        //                       builder: (context) => CartState()));
         //             },
         //             child: Icon(
         //               Icons.shopping_cart,

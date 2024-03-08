@@ -1,5 +1,3 @@
-import 'package:ecommerceapp/theme/widget_themes/appbar_theme.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'cart.dart';
@@ -7,6 +5,8 @@ import 'categoriespage.dart';
 import 'helpers/helper_functions.dart';
 
 class PerfumeStore extends StatelessWidget {
+  const PerfumeStore({super.key});
+
 // final TabController tabController=TabController(length: 4, vsync: AnimatedListState());
   @override
   Widget build(BuildContext context) {
@@ -21,9 +21,9 @@ class PerfumeStore extends StatelessWidget {
               IconButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CartState("")));
+                        MaterialPageRoute(builder: (context) => CartState()));
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.shopping_cart_rounded,
                     color: Colors.black,
                   )),
@@ -56,7 +56,7 @@ class PerfumeStore extends StatelessWidget {
             child: TextField(
                 decoration: InputDecoration(
               hintText: "Search",
-              prefixIcon: Icon(Icons.search),
+              prefixIcon: const Icon(Icons.search),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
                 // borderSide: BorderSide(),
@@ -66,7 +66,7 @@ class PerfumeStore extends StatelessWidget {
           //Brand Grid
           Row(
             children: [
-              Text(
+              const Text(
                 "Popular Brands",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
@@ -78,7 +78,7 @@ class PerfumeStore extends StatelessWidget {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Categories()));
                 },
-                child: Text(
+                child: const Text(
                   "VIEW ALL",
                   style: TextStyle(color: Colors.blue),
                 ),
@@ -98,7 +98,7 @@ class PerfumeStore extends StatelessWidget {
                     Container(
                       height: 30,
                       width: 60,
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
                           color: dark ? Colors.black : Colors.white,
                           borderRadius: BorderRadius.circular(100)),
@@ -130,7 +130,7 @@ class PerfumeStore extends StatelessWidget {
                     Container(
                         height: 30,
                         width: 60,
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
                             color: dark ? Colors.black : Colors.white,
                             borderRadius: BorderRadius.circular(100)),
@@ -138,7 +138,7 @@ class PerfumeStore extends StatelessWidget {
                             child: Image.asset("asset/logo/919paris.jpeg"))),
                     Column(
                       children: [
-                        Text("919 PARIS",
+                        const Text("919 PARIS",
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         Text(
                           "200 Products",
@@ -160,7 +160,7 @@ class PerfumeStore extends StatelessWidget {
                     Container(
                         height: 30,
                         width: 60,
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
                             color: dark ? Colors.black : Colors.white,
                             borderRadius: BorderRadius.circular(100)),
@@ -168,7 +168,7 @@ class PerfumeStore extends StatelessWidget {
                             Center(child: Image.asset("asset/logo/axe.jpeg"))),
                     Column(
                       children: [
-                        Text("AXE",
+                        const Text("AXE",
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         Text(
                           "200 Products",
@@ -190,7 +190,7 @@ class PerfumeStore extends StatelessWidget {
                     Container(
                         height: 30,
                         width: 60,
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
                             color: dark ? Colors.black : Colors.white,
                             borderRadius: BorderRadius.circular(100)),
@@ -198,7 +198,7 @@ class PerfumeStore extends StatelessWidget {
                             Center(child: Image.asset("asset/logo/ajmal.png"))),
                     Column(
                       children: [
-                        Text("Ajmal",
+                        const Text("Ajmal",
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         Text(
                           "150 Products",
@@ -240,11 +240,11 @@ class PerfumeStore extends StatelessWidget {
                             SizedBox(
                                 height: 150,
                                 child: Image.asset("asset/image/denver1.jpg")),
-                            Text(
+                            const Text(
                               "Denver Hamilton Mens",
                               style: TextStyle(color: Colors.black),
                             ),
-                            Text(
+                            const Text(
                               "₹ 350",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             )
@@ -261,11 +261,11 @@ class PerfumeStore extends StatelessWidget {
                             SizedBox(
                                 height: 150,
                                 child: Image.asset("asset/image/denver2.jpg")),
-                            Text(
+                            const Text(
                               "Denver Fresh Deodrant",
                               style: TextStyle(color: Colors.black),
                             ),
-                            Text(
+                            const Text(
                               "₹ 290.00",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             )
@@ -282,11 +282,11 @@ class PerfumeStore extends StatelessWidget {
                             SizedBox(
                                 height: 150,
                                 child: Image.asset("asset/image/denver3.jpg")),
-                            Text(
+                            const Text(
                               "Denver Green Mans Deodrant",
                               style: TextStyle(color: Colors.black),
                             ),
-                            Text(
+                            const Text(
                               "₹ 290.00",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             )
@@ -303,11 +303,11 @@ class PerfumeStore extends StatelessWidget {
                             SizedBox(
                                 height: 150,
                                 child: Image.asset("asset/image/Perfume.jpg")),
-                            Text(
+                            const Text(
                               "Ocen Perfume",
                               style: TextStyle(color: Colors.black),
                             ),
-                            Text(
+                            const Text(
                               "₹ 250.00",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             )

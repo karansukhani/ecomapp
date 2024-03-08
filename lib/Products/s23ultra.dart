@@ -210,7 +210,7 @@ class _S23ultraState extends State<S23ultra> {
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder:(context) =>CartState(quancontroller.text.toString())));
+                Navigator.push(context, MaterialPageRoute(builder:(context) =>CartState()));
               },
               child: Center(
                 child: Text("Add to Cart",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),

@@ -1,13 +1,13 @@
 import 'package:ecommerceapp/cart.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/services.dart';
 import 'package:readmore/readmore.dart';
 
 
 class S24ultra extends StatefulWidget {
+  const S24ultra({super.key});
+
   @override
   State<S24ultra> createState() => _S24ultraState();
 }
@@ -21,18 +21,16 @@ class _S24ultraState extends State<S24ultra> {
     return Scaffold(
       body: ListView(
         children: [
-          Container(
-            child: CarouselSlider(
-              items: [
-                Image.asset("asset/image/s24ultra.jpg"),
-                Image.asset("asset/image/s24ultra2.jpg"),
-                Image.asset("asset/image/s24ultra3.jpg"),
-                Image.asset("asset/image/s24ultra4.jpg"),
-              ],
-              options: CarouselOptions(height: 200),
-            ),
+          CarouselSlider(
+            items: [
+              Image.asset("asset/image/s24ultra.jpg"),
+              Image.asset("asset/image/s24ultra2.jpg"),
+              Image.asset("asset/image/s24ultra3.jpg"),
+              Image.asset("asset/image/s24ultra4.jpg"),
+            ],
+            options: CarouselOptions(height: 200),
           ),
-          Container(
+          const SizedBox(
             height: 20,
             width: double.infinity,
           ),
@@ -47,21 +45,21 @@ class _S24ultraState extends State<S24ultra> {
           //     style: TextStyle(fontWeight: FontWeight.bold),
           //   ),
           // ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text("-7% ₹ 1,34,999 "),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text("Stock : InStock"),
           ),
-          Text("Size"),
+          const Text("Size"),
           Row(
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ChoiceChip(
-                    label: Text("12GB+256GB"),
+                    label: const Text("12GB+256GB"),
                     selected: is_selected,
                     color: MaterialStateColor.resolveWith(
                             (states) => Colors.black12),
@@ -70,7 +68,7 @@ class _S24ultraState extends State<S24ultra> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ChoiceChip(
-                    label: Text("12GB+512GB"),
+                    label: const Text("12GB+512GB"),
                     selected: is_selected,
                     color: MaterialStateColor.resolveWith(
                             (states) => Colors.black12),
@@ -79,7 +77,7 @@ class _S24ultraState extends State<S24ultra> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ChoiceChip(
-                    label: Text("12GB+1TB"),
+                    label: const Text("12GB+1TB"),
                     selected: is_selected,
                     color: MaterialStateColor.resolveWith(
                             (states) => Colors.black12),
@@ -105,7 +103,7 @@ class _S24ultraState extends State<S24ultra> {
               // ),
             ],
           ),
-          Text("Color"),
+          const Text("Color"),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -113,7 +111,7 @@ class _S24ultraState extends State<S24ultra> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ChoiceChip(
-                      label: Column(children: [
+                      label: const Column(children: [
                         CircleAvatar(backgroundColor: Colors.grey,),
                         Text("Titanium Gray",style: TextStyle(color: Colors.black),),
                       ],),
@@ -126,7 +124,7 @@ class _S24ultraState extends State<S24ultra> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ChoiceChip(
-                      label: Column(children: [
+                      label: const Column(children: [
                 CircleAvatar(backgroundColor: Colors.black,),
                 Text("Titanium Black",style: TextStyle(color: Colors.black),),
                 ],),
@@ -141,7 +139,7 @@ class _S24ultraState extends State<S24ultra> {
                   child: ChoiceChip(
                       label: Column(children: [
                         CircleAvatar(backgroundColor: Colors.blue.shade900,),
-                        Text("Titanium Velvet",style: TextStyle(color: Colors.black),),
+                        const Text("Titanium Velvet",style: TextStyle(color: Colors.black),),
                       ],),
                       selected: is_selected,
                       color: MaterialStateColor.resolveWith(
@@ -170,7 +168,7 @@ class _S24ultraState extends State<S24ultra> {
               ],
             ),
           ),
-          Row(
+          const Row(
             children: [Text("Brand :",style:TextStyle(fontWeight: FontWeight.bold) ,),
             SizedBox(width: KSizes.defaultSpace,),
             Text(("Samsung"))],
@@ -182,14 +180,14 @@ class _S24ultraState extends State<S24ultra> {
                 setState(() {
                   quan--;
                 });
-              }, child: Text("-",style: TextStyle(fontWeight: FontWeight.bold),)),
+              }, child: const Text("-",style: TextStyle(fontWeight: FontWeight.bold),)),
               SizedBox(
                 width: 40,
                 height: 20,
                 child: TextFormField(
                   controller: quancontroller,
                   keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       border: OutlineInputBorder(
                         // borderSide: BorderSide(style: BorderStyle.solid),
                       )
@@ -200,7 +198,7 @@ class _S24ultraState extends State<S24ultra> {
                 setState(() {
                   quan++;
                 });
-              }, child: Text("+",style: TextStyle(fontWeight: FontWeight.bold),)),
+              }, child: const Text("+",style: TextStyle(fontWeight: FontWeight.bold),)),
             ],
           ),
 
@@ -208,18 +206,18 @@ class _S24ultraState extends State<S24ultra> {
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder:(context) =>CartState(quancontroller.text.toString())));
+                Navigator.push(context, MaterialPageRoute(builder:(context) =>CartState()));
               },
-              child: Center(
-                child: Text("Add to Cart",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-              ),
               style: ButtonStyle(
                   backgroundColor:
                   MaterialStateColor.resolveWith((states) => Colors.blue)),
+              child: const Center(
+                child: Text("Add to Cart",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+              ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: ReadMoreText(
           "• Meet Galaxy S24 Ultra, the ultimate form of Galaxy Ultra with a new titanium exterior and a 17.25cm (6.8') flat display. It's an absolute marvel of design."
           "  The legacy of Galaxy Note is alive and well. Write, tap and navigate with precision your fingers wish they had on the new, flat display.,"

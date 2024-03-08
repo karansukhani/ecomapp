@@ -3,10 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CartState extends StatefulWidget {
-  var quantity;
-  CartState(
-    this.quantity,
-  );
+  var quantity=1;
+  // CartState(
+  //   this.quantity,
+  // );
 
   @override
   State<CartState> createState() => _CartStateState();
