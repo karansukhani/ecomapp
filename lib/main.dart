@@ -176,7 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               Container(
-                width: 200,
+                width: 150,
               ),
               TextButton(
                 onPressed: () {
@@ -360,7 +360,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               Container(
-                width: 230,
+                width: 200,
               ),
               TextButton(
                 onPressed: () {

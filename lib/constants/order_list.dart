@@ -7,7 +7,7 @@ class KOrderListItems extends StatelessWidget {
   const KOrderListItems ({super.key});
   @override
   Widget build(BuildContext context) {
-    final dark = KHelperFunctions.isDarkMode(context);
+    KHelperFunctions.isDarkMode(context);
     return ListView.separated(
       itemCount: 10,
       separatorBuilder: (__,index)=>SizedBox(height: KSizes.spaceBtwItems,),

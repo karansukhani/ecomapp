@@ -2,7 +2,6 @@ import 'package:ecommerceapp/Products/15promax.dart';
 import 'package:ecommerceapp/Products/s23ultra.dart';
 import 'package:ecommerceapp/Products/s24ultra.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
-import 'package:ecommerceapp/theme/widget_themes/appbar_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -68,26 +67,36 @@ class MobileStore extends StatelessWidget {
             )),
           ),
           //Brand Grid
-          Row(
-            children: [
-              Text(
-                "Popular Brands",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              Container(
-                width: 200,
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Categories()));
-                },
-                child: Text(
-                  "VIEW ALL",
-                  style: TextStyle(color: Colors.blue),
-                ),
-              )
-            ],
+          Container(
+            width: double.infinity,
+            height: 30,
+            child: Stack(
+                children:[
+                  Positioned(
+                    left:5,
+                    child: Text(
+                      "Popular Brands",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  // Container(
+                  //   width: 200,
+                  // ),
+                  Positioned(
+                    right: 5,
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Categories()));
+                      },
+                      child: Text(
+                        "VIEW ALL",
+                        style: TextStyle(color: Colors.blue),
+                      ),
+                    ),
+                  ),
+                ]
+            ),
           ),
           Wrap(
             spacing: 10,
@@ -261,7 +270,7 @@ class MobileStore extends StatelessWidget {
                               ),
                               Text(
                                 "₹ 1,48,900",
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
                               )
                             ],
                           ),
@@ -288,7 +297,7 @@ class MobileStore extends StatelessWidget {
                               ),
                               Text(
                                 "₹ 1,29,965",
-                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
+                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 10),
                               )
                             ],
                           ),
@@ -319,7 +328,7 @@ class MobileStore extends StatelessWidget {
                             ),
                             Text(
                               "₹ 1,27,990",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
                             )
                           ],
                         ),
@@ -354,7 +363,7 @@ class MobileStore extends StatelessWidget {
                               ),
                               Text(
                                 "₹ 1,09,999",
-                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
+                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 10),
                               )
                             ],
                           ),

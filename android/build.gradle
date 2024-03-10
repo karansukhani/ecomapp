@@ -20,7 +20,7 @@ allprojects {
 rootProject.buildDir = '../build'
 
 dependencies {
-    implementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13.2'
 }
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"

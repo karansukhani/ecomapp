@@ -2,7 +2,7 @@ import 'package:ecommerceapp/Screens/addresses.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:cupertino_icons/cupertino_icons.dart';
+// import 'package:cupertino_icons/cupertino_icons.dart';
 
 class Addnewaddress extends StatelessWidget {
   @override

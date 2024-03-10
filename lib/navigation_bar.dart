@@ -1,9 +1,7 @@
 import 'package:ecommerceapp/account.dart';
 import 'package:ecommerceapp/cart.dart';
-import 'package:ecommerceapp/categoriespage.dart';
 import 'package:ecommerceapp/helpers/helper_functions.dart';
 import 'package:ecommerceapp/main.dart';
-import 'package:ecommerceapp/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

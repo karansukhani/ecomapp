@@ -2,6 +2,7 @@ import 'package:ecommerceapp/Products/adidas.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CartState extends StatefulWidget {
   var quantity=1;
   // CartState(
@@ -30,7 +31,7 @@ class _CartStateState extends State<CartState> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(8),
+        padding: EdgeInsets.all(5),
         child: ListView.separated(
           separatorBuilder: (_, __) => const SizedBox(
             height: 10,
@@ -70,15 +71,12 @@ class _CartStateState extends State<CartState> {
                     )
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "Size : 10UK",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
+                Text(
+                  "Size : 10UK",
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20),
+                  padding: const EdgeInsets.only(left: 15),
                   child: TextButton(
                       onPressed: () {
                         setState(() {

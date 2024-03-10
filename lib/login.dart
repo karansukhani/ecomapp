@@ -5,10 +5,8 @@ import 'package:ecommerceapp/forget_pass.dart';
 import 'package:ecommerceapp/helpers/helper_functions.dart';
 import 'package:ecommerceapp/navigation_bar.dart';
 import 'package:ecommerceapp/signup.dart';
-import 'package:ecommerceapp/validators/validation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerceapp/main.dart';
 
 class LoginState extends StatelessWidget {
   // const LoginState({super.key});

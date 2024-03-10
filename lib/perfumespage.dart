@@ -64,26 +64,36 @@ class PerfumeStore extends StatelessWidget {
             )),
           ),
           //Brand Grid
-          Row(
-            children: [
-              const Text(
-                "Popular Brands",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              Container(
-                width: 200,
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Categories()));
-                },
-                child: const Text(
-                  "VIEW ALL",
-                  style: TextStyle(color: Colors.blue),
-                ),
-              )
-            ],
+          Container(
+            width: double.infinity,
+            height: 30,
+            child: Stack(
+                children:[
+                  Positioned(
+                    left:5,
+                    child: Text(
+                      "Popular Brands",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  // Container(
+                  //   width: 200,
+                  // ),
+                  Positioned(
+                    right: 5,
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Categories()));
+                      },
+                      child: Text(
+                        "VIEW ALL",
+                        style: TextStyle(color: Colors.blue),
+                      ),
+                    ),
+                  ),
+                ]
+            ),
           ),
           Wrap(
             children: [
@@ -246,7 +256,7 @@ class PerfumeStore extends StatelessWidget {
                             ),
                             const Text(
                               "₹ 350",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
                             )
                           ],
                         ),
@@ -267,7 +277,7 @@ class PerfumeStore extends StatelessWidget {
                             ),
                             const Text(
                               "₹ 290.00",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
                             )
                           ],
                         ),
@@ -288,7 +298,7 @@ class PerfumeStore extends StatelessWidget {
                             ),
                             const Text(
                               "₹ 290.00",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
                             )
                           ],
                         ),
@@ -309,7 +319,7 @@ class PerfumeStore extends StatelessWidget {
                             ),
                             const Text(
                               "₹ 250.00",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
                             )
                           ],
                         ),
