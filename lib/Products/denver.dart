@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
 import 'package:readmore/readmore.dart';
+import 'package:provider/provider.dart';
+
+import '../Provider/count_provider.dart';
 
 
 class Denver extends StatefulWidget {
@@ -21,41 +24,39 @@ class _DenverState extends State<Denver> {
     return Scaffold(
       body: ListView(
         children: [
-          Container(
-            child: CarouselSlider(
-              items: [
-                Image.asset("asset/image/denver1.jpg"),
-                Image.asset("asset/image/denver2.jpg"),
-                Image.asset("asset/image/denver3.jpg"),
-                Image.asset("asset/image/denver4.jpg"),
-              ],
-              options: CarouselOptions(height: 200),
-            ),
+          CarouselSlider(
+            items: [
+              Image.asset("asset/image/denver1.jpg"),
+              Image.asset("asset/image/denver2.jpg"),
+              Image.asset("asset/image/denver3.jpg"),
+              Image.asset("asset/image/denver4.jpg"),
+            ],
+            options: CarouselOptions(height: 200),
           ),
           Container(
             height: 20,
             width: double.infinity,
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text("DENVER Imperial Deodorant - 165ML | Long Lasting Deo Body Spray for Men",),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text(
               "TRAE YOUNG 3 'OFF WHITE/RED/CORE BLACK'",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text("₹ 14,999.00"),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text("Stock : InStock"),
           ),
-          Text("Size"),
+          const Text("Size"),
           // Row(
           //   children: [
           //     Padding(
@@ -105,32 +106,29 @@ class _DenverState extends State<Denver> {
           //     ),
           //   ],
           // ),
-
+//Quantity Selection
           Row(
             children: [
-              TextButton(onPressed: (){
-                setState(() {
-                  quan--;
-                });
-              }, child: Text("-",style: TextStyle(fontWeight: FontWeight.bold),)),
-              SizedBox(
-                width: 40,
-                height: 20,
-                child: TextFormField(
-                  controller: quancontroller,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        // borderSide: BorderSide(style: BorderStyle.solid),
-                      )
-                  ),
-                ),
-              ),
-              TextButton(onPressed: (){
-                setState(() {
-                  quan++;
-                });
-              }, child: Text("+",style: TextStyle(fontWeight: FontWeight.bold),)),
+              Consumer<CountProvider>(builder: (context,value,child){
+                return  TextButton(onPressed: (){
+                  value.decrement();
+                }, child: const Text("-",style: TextStyle(fontWeight: FontWeight.bold),));
+              }),
+              Consumer<CountProvider>(builder: (context,value,child){
+                return
+                  SizedBox(
+                    width: 40,
+                    height: 20,
+                    child: Text(value.quan.toString()),
+                  );
+              }),
+
+              Consumer<CountProvider>(builder: (context,value,child){
+                return TextButton(onPressed: (){
+                  value.increment();
+                }, child: const Text("+",style: TextStyle(fontWeight: FontWeight.bold),));
+              }),
+
             ],
           ),
 
@@ -140,7 +138,7 @@ class _DenverState extends State<Denver> {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder:(context) =>CartState()));
               },
-              child: Center(
+              child: const Center(
                 child: Text("Add to Cart",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
               ),
               style: ButtonStyle(
@@ -148,8 +146,8 @@ class _DenverState extends State<Denver> {
                   MaterialStateColor.resolveWith((states) => Colors.blue)),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: ReadMoreText(
               "REDUCES BODY ODOR : One of the primary benefits of deodorant is that it helps reduce body odor. Deodorants contain antimicrobial agents that help control the growth of odor-causing bacteria"
             "  KEEPS YOU FEELING FRESH : Using deodorant can help you feel fresh and clean throughout the day. It helps to mask unpleasant odors and can give you a sense of confidence."

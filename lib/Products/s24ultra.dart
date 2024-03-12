@@ -3,6 +3,9 @@ import 'package:ecommerceapp/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:readmore/readmore.dart';
+import 'package:provider/provider.dart';
+
+import '../Provider/count_provider.dart';
 
 
 class S24ultra extends StatefulWidget {
@@ -176,29 +179,26 @@ class _S24ultraState extends State<S24ultra> {
 
           Row(
             children: [
-              TextButton(onPressed: (){
-                setState(() {
-                  quan--;
-                });
-              }, child: const Text("-",style: TextStyle(fontWeight: FontWeight.bold),)),
-              SizedBox(
-                width: 40,
-                height: 20,
-                child: TextFormField(
-                  controller: quancontroller,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(
-                        // borderSide: BorderSide(style: BorderStyle.solid),
-                      )
-                  ),
-                ),
-              ),
-              TextButton(onPressed: (){
-                setState(() {
-                  quan++;
-                });
-              }, child: const Text("+",style: TextStyle(fontWeight: FontWeight.bold),)),
+              Consumer<CountProvider>(builder: (context,value,child){
+                return  TextButton(onPressed: (){
+                  value.decrement();
+                }, child: const Text("-",style: TextStyle(fontWeight: FontWeight.bold),));
+              }),
+              Consumer<CountProvider>(builder: (context,value,child){
+                return
+                  SizedBox(
+                    width: 40,
+                    height: 20,
+                    child: Text(value.quan.toString()),
+                  );
+              }),
+
+              Consumer<CountProvider>(builder: (context,value,child){
+                return TextButton(onPressed: (){
+                  value.increment();
+                }, child: const Text("+",style: TextStyle(fontWeight: FontWeight.bold),));
+              }),
+
             ],
           ),
 

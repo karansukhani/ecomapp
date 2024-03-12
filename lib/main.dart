@@ -30,12 +30,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    //If we want to use Multiprovider then we have to use multiprovider in place of Changenotificationprovider
+    //And Provider array in which we give multiple ChangeNotifierProvide and create Provider
     return ChangeNotifierProvider(create: (_) =>CountProvider(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Satguru Creations',
         theme: ThemeData(
-          textTheme: TextTheme(
+          textTheme: const TextTheme(
               displayLarge: TextStyle(
                   fontWeight: FontWeight.bold, color: Colors.blue, fontSize: 20)),
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
@@ -49,6 +51,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
   State<StatefulWidget> createState() => _MyHomePageState();
 }
@@ -87,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => CartState()));
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.shopping_cart_rounded,
                     color: Colors.black,
                   )),
@@ -167,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: TextField(
                 decoration: InputDecoration(
               hintText: "Search",
-              prefixIcon: Icon(Icons.search),
+              prefixIcon: const Icon(Icons.search),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
                 // borderSide: BorderSide(),
@@ -176,7 +180,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Row(
             children: [
-              Text(
+              const Text(
                 "Popular Categories",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
@@ -188,7 +192,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Categories()));
                 },
-                child: Text(
+                child: const Text(
                   "VIEW ALL",
                   style: TextStyle(color: Colors.blue),
                 ),
@@ -218,7 +222,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: 50,
                               width: 80,
                               child: Image.asset("asset/image/shoe.jpg")),
-                          Text(
+                          const Text(
                             "Shoes",
                             style: TextStyle(color: Colors.black),
                           )
@@ -246,7 +250,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               "asset/image/mobile.jpeg",
                             ),
                           ),
-                          Text(
+                          const Text(
                             "Mobile",
                             style: TextStyle(color: Colors.black),
                           )
@@ -256,21 +260,26 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100)),
-                            height: 50,
-                            width: 80,
-                            child: Image.asset(
-                              "asset/image/headphone.jpg",
-                            )),
-                        Text(
-                          "Accesories",
-                          style: TextStyle(color: Colors.black),
-                        )
-                      ],
+                    child: TextButton(
+                      onPressed: (){
+                       Navigator.push(context, MaterialPageRoute(builder: (context)=>MobileStore()));
+                      },
+                      child: Column(
+                        children: [
+                          Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100)),
+                              height: 50,
+                              width: 80,
+                              child: Image.asset(
+                                "asset/image/headphone.jpg",
+                              )),
+                          const Text(
+                            "Accesories",
+                            style: TextStyle(color: Colors.black),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   TextButton(
@@ -278,7 +287,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => PerfumeStore()));
+                              builder: (context) => const PerfumeStore()));
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -292,7 +301,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Image.asset(
                                 "asset/image/Perfume.jpg",
                               )),
-                          Text(
+                          const Text(
                             "Perfume",
                             style: TextStyle(color: Colors.black),
                           )
@@ -302,42 +311,40 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               )),
-          Container(
-            child: CarouselSlider(
-              items: [
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Container(
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(10)),
-                    child: Image.asset("asset/image/temp1.jpg"),
-                  ),
+          CarouselSlider(
+            items: [
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: Container(
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                  child: Image.asset("asset/image/temp1.jpg"),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Container(
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(10)),
-                    child: Image.asset("asset/image/banner_3.jpg"),
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: Container(
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                  child: Image.asset("asset/image/banner_3.jpg"),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Container(
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(10)),
-                    child: Image.asset("asset/image/temp2.jpg"),
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: Container(
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                  child: Image.asset("asset/image/temp2.jpg"),
                 ),
-              ],
-              options: CarouselOptions(
-                  height: 300,
-                  autoPlay: true,
-                  onPageChanged: (index, _) =>
-                      controller.UpdatePageIndicator(index)),
-            ),
+              ),
+            ],
+            options: CarouselOptions(
+                height: 300,
+                autoPlay: true,
+                onPageChanged: (index, _) =>
+                    controller.UpdatePageIndicator(index)),
           ),
-          SizedBox(
+          const SizedBox(
             height: KSizes.spaceBtwItems,
           ),
           // SizedBox(height: KSizes.spaceBtwItems),
@@ -347,8 +354,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Container(
                   width: 20,
                   height: 4,
-                  margin: EdgeInsets.only(right: 10),
-                  padding: EdgeInsets.only(right: 10),
+                  margin: const EdgeInsets.only(right: 10),
+                  padding: const EdgeInsets.only(right: 10),
                   decoration: BoxDecoration(
                     color: controller.CarouselCurrentIndex == i
                         ? Colors.blue
@@ -359,7 +366,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Row(
             children: [
-              Text(
+              const Text(
                 "New Arrivals",
                 style:
                     TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
@@ -372,7 +379,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => SneakerStore()));
                 },
-                child: Text(
+                child: const Text(
                   "VIEW ALL",
                   style: TextStyle(color: Colors.blue),
                 ),
@@ -387,7 +394,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   boxShadow: [
                     BoxShadow(
                       color: Colors.transparent,
@@ -399,14 +406,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Column(
                   children: [
                     Container(
-                      decoration: BoxDecoration(boxShadow: [
+                      decoration: const BoxDecoration(boxShadow: [
                         BoxShadow(
                           color: Colors.grey,
                           blurRadius: 10,
                         )
                       ]),
                       child: Container(
-                        decoration: BoxDecoration(boxShadow: [
+                        decoration: const BoxDecoration(boxShadow: [
                           BoxShadow(
                             color: Colors.grey,
                             blurRadius: 10,
@@ -422,7 +429,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   height: 20,
                                   width: 40,
                                   color: Colors.yellowAccent,
-                                  child: Text(
+                                  child: const Text(
                                     " 25%",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
@@ -433,11 +440,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                     ),
-                    Text(
+                    const Text(
                       "Adidas Red New Arrival",
                       style: TextStyle(color: Colors.black),
                     ),
-                    Text(
+                    const Text(
                       "₹25000",
                       style: TextStyle(
                           fontWeight: FontWeight.bold, color: Colors.black),
@@ -455,7 +462,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Container(
-                decoration: BoxDecoration(boxShadow: [
+                decoration: const BoxDecoration(boxShadow: [
                   BoxShadow(
                     color: Colors.transparent,
                     blurRadius: 15,
@@ -464,7 +471,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Column(
                   children: [
                     Container(
-                      decoration: BoxDecoration(boxShadow: [
+                      decoration: const BoxDecoration(boxShadow: [
                         BoxShadow(
                           color: Colors.grey,
                           blurRadius: 10,
@@ -480,7 +487,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 20,
                                 width: 40,
                                 color: Colors.yellowAccent,
-                                child: Text(
+                                child: const Text(
                                   " 10%",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -490,11 +497,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                     ),
-                    Text(
+                    const Text(
                       " Mens Air Jordans",
                       style: TextStyle(color: Colors.black),
                     ),
-                    Text(
+                    const Text(
                       "₹30000",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     )
@@ -511,7 +518,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Container(
-                decoration: BoxDecoration(boxShadow: [
+                decoration: const BoxDecoration(boxShadow: [
                   BoxShadow(
                     color: Colors.transparent,
                     blurRadius: 15,
@@ -520,7 +527,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Column(
                   children: [
                     Container(
-                      decoration: BoxDecoration(boxShadow: [
+                      decoration: const BoxDecoration(boxShadow: [
                         BoxShadow(
                           color: Colors.grey,
                           blurRadius: 10,
@@ -536,7 +543,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 20,
                                 width: 40,
                                 color: Colors.yellowAccent,
-                                child: Text(
+                                child: const Text(
                                   " 25%",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -546,11 +553,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                     ),
-                    Text(
+                    const Text(
                       "Mens Dunk Sneakers",
                       style: TextStyle(color: Colors.black),
                     ),
-                    Text(
+                    const Text(
                       "₹10000",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     )
@@ -562,7 +569,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Container(
-              decoration: BoxDecoration(boxShadow: [
+              decoration: const BoxDecoration(boxShadow: [
                 BoxShadow(
                   color: Colors.transparent,
                   blurRadius: 15,
@@ -571,7 +578,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Column(
                 children: [
                   Container(
-                    decoration: BoxDecoration(boxShadow: [
+                    decoration: const BoxDecoration(boxShadow: [
                       BoxShadow(
                         color: Colors.grey,
                         blurRadius: 10,
@@ -587,7 +594,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: 20,
                               width: 40,
                               color: Colors.yellowAccent,
-                              child: Text(
+                              child: const Text(
                                 " 10%",
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
@@ -597,11 +604,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                   ),
-                  Text(
+                  const Text(
                     "BULLY SNEAKER 'BALCK/WHITE'",
                     style: TextStyle(color: Colors.black),
                   ),
-                  Text(
+                  const Text(
                     "₹29000",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   )
@@ -612,7 +619,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Container(
-              decoration: BoxDecoration(boxShadow: [
+              decoration: const BoxDecoration(boxShadow: [
                 BoxShadow(
                   color: Colors.transparent,
                   blurRadius: 15,
@@ -621,7 +628,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Column(
                 children: [
                   Container(
-                    decoration: BoxDecoration(boxShadow: [
+                    decoration: const BoxDecoration(boxShadow: [
                       BoxShadow(
                         color: Colors.grey,
                         blurRadius: 10,
@@ -637,7 +644,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: 20,
                               width: 40,
                               color: Colors.yellowAccent,
-                              child: Text(
+                              child: const Text(
                                 " 10%",
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
@@ -647,11 +654,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                   ),
-                  Text(
+                  const Text(
                     "NIKE SB DUNK LOW THE POWERPUFF GIRLS BUBBLES",
                     style: TextStyle(color: Colors.black),
                   ),
-                  Text(
+                  const Text(
                     "₹43,500",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   )
