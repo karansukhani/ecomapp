@@ -7,6 +7,7 @@ import 'package:ecommerceapp/constants/text_strings.dart';
 import 'package:ecommerceapp/helpers/helper_functions.dart';
 import 'package:ecommerceapp/login.dart';
 import 'package:ecommerceapp/mobilestore.dart';
+import 'package:provider/provider.dart';
 // import 'package:ecommerceapp/navigation_bar.dart';
 import 'package:ecommerceapp/perfumespage.dart';
 // import 'package:ecommerceapp/profile.dart';
@@ -17,6 +18,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
 import 'Products/adidas.dart';
+import 'Provider/count_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,17 +30,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Satguru Creations',
-      theme: ThemeData(
-        textTheme: TextTheme(
-            displayLarge: TextStyle(
-                fontWeight: FontWeight.bold, color: Colors.blue, fontSize: 20)),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
+    return ChangeNotifierProvider(create: (_) =>CountProvider(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Satguru Creations',
+        theme: ThemeData(
+          textTheme: TextTheme(
+              displayLarge: TextStyle(
+                  fontWeight: FontWeight.bold, color: Colors.blue, fontSize: 20)),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          useMaterial3: true,
+        ),
+        home: LoginState(),
       ),
-      home: LoginState(),
+
     );
   }
 }

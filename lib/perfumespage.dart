@@ -293,12 +293,12 @@ class PerfumeStore extends StatelessWidget {
                                 height: 150,
                                 child: Image.asset("asset/image/denver3.jpg")),
                             const Text(
-                              "Denver Green Mans Deodrant",
+                              "Denver Green Mans",
                               style: TextStyle(color: Colors.black),
                             ),
                             const Text(
                               "₹ 290.00",
-                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
+                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 9),
                             )
                           ],
                         ),

@@ -297,7 +297,7 @@ class MobileStore extends StatelessWidget {
                               ),
                               Text(
                                 "₹ 1,29,965",
-                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 10),
+                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 9),
                               )
                             ],
                           ),
@@ -363,7 +363,7 @@ class MobileStore extends StatelessWidget {
                               ),
                               Text(
                                 "₹ 1,09,999",
-                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 10),
+                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 9),
                               )
                             ],
                           ),
