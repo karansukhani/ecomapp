@@ -1,5 +1,6 @@
 import 'package:ecommerceapp/Products/jordan.dart';
 import 'package:ecommerceapp/Shop/controller/home_controller.dart';
+import 'package:ecommerceapp/accesories_store.dart';
 import 'package:ecommerceapp/cart.dart';
 import 'package:ecommerceapp/categoriespage.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //If we want to use Multiprovider then we have to use multiprovider in place of Changenotificationprovider
     //And Provider array in which we give multiple ChangeNotifierProvide and create Provider
-    return ChangeNotifierProvider(create: (_) =>CountProvider(),
+    return ChangeNotifierProvider(
+      create: (_)=>CountProvider(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Satguru Creations',
@@ -185,7 +187,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               Container(
-                width: 150,
+                width: 200,
               ),
               TextButton(
                 onPressed: () {
@@ -262,7 +264,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: const EdgeInsets.all(8.0),
                     child: TextButton(
                       onPressed: (){
-                       Navigator.push(context, MaterialPageRoute(builder: (context)=>MobileStore()));
+                       Navigator.push(context, MaterialPageRoute(builder: (context)=>AccesoriesStore()));
                       },
                       child: Column(
                         children: [
@@ -372,7 +374,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               Container(
-                width: 200,
+                width: 220,
               ),
               TextButton(
                 onPressed: () {

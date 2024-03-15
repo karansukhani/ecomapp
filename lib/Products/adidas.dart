@@ -10,12 +10,15 @@ import 'package:provider/provider.dart';
 
 
 class Adidas extends StatefulWidget {
+  const Adidas({super.key});
+
   @override
   State<Adidas> createState() => _AdidasState();
 }
 
 class _AdidasState extends State<Adidas> {
 var is_selected=false;
+List<int> selected=[];
  // var quan=1;
 var quancontroller=TextEditingController(text: "1");
   @override
@@ -64,37 +67,55 @@ var quancontroller=TextEditingController(text: "1");
                 padding: const EdgeInsets.all(8.0),
                 child: ChoiceChip(
                     label: const Text("6"),
-                    selected: is_selected,
+                    selected:  selected.contains(6)?true:false,
                     color: MaterialStateColor.resolveWith(
                         (states) => Colors.black12),
-                    onSelected: (value) {}),
+                    onSelected: (value) {
+                      selected.add(6);
+                      setState(() {
+
+                      });
+                    },
+                    elevation: 10,),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ChoiceChip(
                     label: const Text("7"),
-                    selected: is_selected,
+                    selected: selected.contains(7)?true:false,
                     color: MaterialStateColor.resolveWith(
                         (states) => Colors.black12),
-                    onSelected: (value) {}),
+                    onSelected: (value) {
+                      selected.add(7);
+                      setState(() {
+
+                      });
+                    }),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ChoiceChip(
                     label: const Text("8"),
-                    selected: is_selected,
+                    selected: selected.contains(8)?true:false,
                     color: MaterialStateColor.resolveWith(
                         (states) => Colors.black12),
-                    onSelected: (value) {}),
+                    onSelected: (value) {
+                      selected.add(8);
+                      setState(() {
+
+                      });
+                    }),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ChoiceChip(
                     label: const Text("9"),
-                    selected: is_selected,
+                    selected: selected.contains(9)?true:false,
                     color: MaterialStateColor.resolveWith(
                         (states) => Colors.black12),
-                    onSelected: (value) {}),
+                    onSelected:(value){
+                      selected.add(9);
+                    }),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
