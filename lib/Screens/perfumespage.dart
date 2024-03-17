@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../constants/sizes.dart';
 import 'cart.dart';
 import 'categoriespage.dart';
 import '../helpers/helper_functions.dart';
@@ -95,7 +96,10 @@ class PerfumeStore extends StatelessWidget {
                 ]
             ),
           ),
+          Divider(color: Colors.white,),
           Wrap(
+            spacing: 10,
+          crossAxisAlignment: WrapCrossAlignment.start,
             children: [
               Container(
                 height: 50,
@@ -219,6 +223,8 @@ class PerfumeStore extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(height: KSizes.spaceBtwItems,
+                width: double.infinity,),
               SizedBox(
                 height: 600,
                 child: GridView.extent(
@@ -250,6 +256,7 @@ class PerfumeStore extends StatelessWidget {
                             SizedBox(
                                 height: 150,
                                 child: Image.asset("asset/image/denver1.jpg")),
+                            const Divider(thickness: 2,),
                             const Text(
                               "Denver Hamilton Mens",
                               style: TextStyle(color: Colors.black),
@@ -271,6 +278,7 @@ class PerfumeStore extends StatelessWidget {
                             SizedBox(
                                 height: 150,
                                 child: Image.asset("asset/image/denver2.jpg")),
+                            const Divider(thickness: 2,),
                             const Text(
                               "Denver Fresh Deodrant",
                               style: TextStyle(color: Colors.black),
@@ -292,6 +300,7 @@ class PerfumeStore extends StatelessWidget {
                             SizedBox(
                                 height: 150,
                                 child: Image.asset("asset/image/denver3.jpg")),
+                            const Divider(thickness: 2,),
                             const Text(
                               "Denver Green Mans",
                               style: TextStyle(color: Colors.black),
@@ -313,8 +322,9 @@ class PerfumeStore extends StatelessWidget {
                             SizedBox(
                                 height: 150,
                                 child: Image.asset("asset/image/Perfume.jpg")),
+                            const Divider(thickness: 2,),
                             const Text(
-                              "Ocen Perfume",
+                              "Ocean Perfume",
                               style: TextStyle(color: Colors.black),
                             ),
                             const Text(

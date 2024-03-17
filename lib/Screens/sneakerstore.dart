@@ -1,5 +1,6 @@
 import 'package:ecommerceapp/Products/adidas.dart';
 import 'package:ecommerceapp/Products/jordan.dart';
+import 'package:ecommerceapp/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -24,7 +25,7 @@ class SneakerStore extends StatelessWidget {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => CartState()));
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.shopping_cart_rounded,
                     color: Colors.black,
                   )),
@@ -59,7 +60,7 @@ class SneakerStore extends StatelessWidget {
               child: TextField(
                   decoration: InputDecoration(
                     hintText: "Search",
-                    prefixIcon: Icon(Icons.search),
+                    prefixIcon: const Icon(Icons.search),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                       // borderSide: BorderSide(),
@@ -72,7 +73,7 @@ class SneakerStore extends StatelessWidget {
               height: 30,
               child: Stack(
                 children:[
-                  Positioned(
+                  const Positioned(
                     left:5,
                     child: Text(
                     "Popular Brands",
@@ -89,7 +90,7 @@ class SneakerStore extends StatelessWidget {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => Categories()));
                     },
-                    child: Text(
+                    child: const Text(
                       "VIEW ALL",
                       style: TextStyle(color: Colors.blue),
                     ),
@@ -98,7 +99,11 @@ class SneakerStore extends StatelessWidget {
       ]
               ),
             ),
+            const Divider(color: Colors.white,),
+            // Popular Brands and products
             Wrap(
+              spacing: 10,
+              crossAxisAlignment: WrapCrossAlignment.start,
               children: [
                 Container(
                   height: 50,
@@ -111,7 +116,7 @@ class SneakerStore extends StatelessWidget {
                       Container(
                         height: 30,
                         width: 60,
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
                             color: dark ? Colors.black : Colors.white,
                             borderRadius: BorderRadius.circular(100)),
@@ -119,9 +124,9 @@ class SneakerStore extends StatelessWidget {
                           child: Image.asset("asset/logo/nike-logo.jpg"),
                         ),
                       ),
-                      Column(
+                      const Column(
                         children: [
-                          const Text("Nike",
+                          Text("Nike",
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           Text(
                             "300 Products",
@@ -143,14 +148,14 @@ class SneakerStore extends StatelessWidget {
                       Container(
                           height: 30,
                           width: 60,
-                          padding: EdgeInsets.all(5),
+                          padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               color: dark ? Colors.black : Colors.white,
                               borderRadius: BorderRadius.circular(100)),
                           child: Center(child: Image.asset("asset/logo/puma.png"))),
                       Column(
                         children: [
-                          Text("Puma",
+                          const Text("Puma",
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           Text(
                             "200 Products",
@@ -172,7 +177,7 @@ class SneakerStore extends StatelessWidget {
                       Container(
                           height: 30,
                           width: 60,
-                          padding: EdgeInsets.all(5),
+                          padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               color: dark ? Colors.black : Colors.white,
                               borderRadius: BorderRadius.circular(100)),
@@ -180,7 +185,7 @@ class SneakerStore extends StatelessWidget {
                               child: Image.asset("asset/logo/adidaslogo.png"))),
                       Column(
                         children: [
-                          Text("Adidas",
+                          const Text("Adidas",
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           Text(
                             "200 Products",
@@ -202,7 +207,7 @@ class SneakerStore extends StatelessWidget {
                       Container(
                           height: 30,
                           width: 60,
-                          padding: EdgeInsets.all(5),
+                          padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               color: dark ? Colors.black : Colors.white,
                               borderRadius: BorderRadius.circular(100)),
@@ -210,7 +215,7 @@ class SneakerStore extends StatelessWidget {
                           Center(child: Image.asset("asset/logo/campus.png"))),
                       Column(
                         children: [
-                          Text("Campus",
+                          const Text("Campus",
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           Text(
                             "150 Products",
@@ -221,6 +226,8 @@ class SneakerStore extends StatelessWidget {
                     ],
                   ),
                 ),
+                const SizedBox(height: KSizes.spaceBtwItems,
+                width: double.infinity,),
                 SizedBox(
                   height: 600,
                   child: GridView.extent(
@@ -244,15 +251,16 @@ class SneakerStore extends StatelessWidget {
                       //   ],),),
                       InkWell(
                         onTap:(){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Adidas()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const Adidas()));
                         },
                         child: Container(height: 100,
                           decoration: BoxDecoration(border: Border.all(color: Colors.black),
                               borderRadius: BorderRadius.circular(5)),
                           child: Column(children: [
                             SizedBox(height:150,child: Image.asset("asset/image/Adidas-1.jpeg")),
+                            const Divider(thickness: 2,),
                             const Text("Adidas Yeezy",style: TextStyle(color: Colors.black),),
-                            Text("₹ 29000.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
+                            const Text("₹ 29000.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
                           ],),),
                       ),
                       Container(height: 100,
@@ -260,8 +268,9 @@ class SneakerStore extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5)),
                         child: Column(children: [
                           SizedBox(height:150,child: Image.asset("asset/image/bully.webp")),
-                          Text("BULLY SNEAKER ..",style: TextStyle(color: Colors.black),),
-                          Text("₹ 29000.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
+                          const Divider(thickness: 2,),
+                          const Text("BULLY SNEAKER ..",style: TextStyle(color: Colors.black),),
+                          const Text("₹ 29000.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
                         ],),),
                       InkWell(
                         onTap:(){
@@ -272,8 +281,9 @@ class SneakerStore extends StatelessWidget {
                               borderRadius: BorderRadius.circular(5)),
                           child: Column(children: [
                             SizedBox(height:150,child: Image.asset("asset/image/Jordan1.jpeg")),
-                            Text("Mens Air Jordans",style: TextStyle(color: Colors.black),),
-                            Text("₹ 29000.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
+                            const Divider(thickness: 2,),
+                            const Text("Mens Air Jordans",style: TextStyle(color: Colors.black),),
+                            const Text("₹ 29000.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
                           ],),),
                       ),
                       Container(height: 100,
@@ -281,8 +291,9 @@ class SneakerStore extends StatelessWidget {
                             borderRadius: BorderRadius.circular(5)),
                         child: Column(children: [
                           SizedBox(height:150,child: Image.asset("asset/image/NikeDunk.png.webp")),
-                          Text("NIKE SB DUNK LOW ..",style: TextStyle(color: Colors.black),),
-                          Text("₹ 43,500.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
+                          const Divider(thickness: 2,),
+                          const Text("NIKE SB DUNK LOW ..",style: TextStyle(color: Colors.black),),
+                          const Text("₹ 43,500.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
                         ],),),
 
 

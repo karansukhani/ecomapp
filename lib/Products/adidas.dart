@@ -17,6 +17,8 @@ class Adidas extends StatefulWidget {
 }
 
 class _AdidasState extends State<Adidas> {
+  final List<String> _productSizes = ['6', '7', '8', '9','10'];
+  String _selectedSize='6';
 var is_selected=false;
 List<int> selected=[];
  // var quan=1;
@@ -61,74 +63,105 @@ var quancontroller=TextEditingController(text: "1");
             child: Text("Stock : InStock"),
           ),
           const Text("Size"),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ChoiceChip(
-                    label: const Text("6"),
-                    selected:  selected.contains(6)?true:false,
-                    color: MaterialStateColor.resolveWith(
-                        (states) => Colors.black12),
-                    onSelected: (value) {
-                      selected.add(6);
-                      setState(() {
-
-                      });
-                    },
-                    elevation: 10,),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ChoiceChip(
-                    label: const Text("7"),
-                    selected: selected.contains(7)?true:false,
-                    color: MaterialStateColor.resolveWith(
-                        (states) => Colors.black12),
-                    onSelected: (value) {
-                      selected.add(7);
-                      setState(() {
-
-                      });
-                    }),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ChoiceChip(
-                    label: const Text("8"),
-                    selected: selected.contains(8)?true:false,
-                    color: MaterialStateColor.resolveWith(
-                        (states) => Colors.black12),
-                    onSelected: (value) {
-                      selected.add(8);
-                      setState(() {
-
-                      });
-                    }),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ChoiceChip(
-                    label: const Text("9"),
-                    selected: selected.contains(9)?true:false,
-                    color: MaterialStateColor.resolveWith(
-                        (states) => Colors.black12),
-                    onSelected:(value){
-                      selected.add(9);
-                    }),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ChoiceChip(
-                    label: const Text("10"),
-                    selected: is_selected,
-                    color: MaterialStateColor.resolveWith(
-                        (states) => Colors.black12),
-                    onSelected: (value) {}),
-              ),
-            ],
-          ),
+          // Row(
+          //   children: [
+          //     Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: ChoiceChip(
+          //           label: const Text("6"),
+          //           selected:  selected.contains(6)?true:false,
+          //           color: MaterialStateColor.resolveWith(
+          //               (states) => Colors.black12),
+          //           onSelected: (value) {
+          //             selected.add(6);
+          //             setState(() {
+          //
+          //             });
+          //           },
+          //           elevation: 10,),
+          //     ),
+          //     Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: ChoiceChip(
+          //           label: const Text("7"),
+          //           selected: selected.contains(7)?true:false,
+          //           color: MaterialStateColor.resolveWith(
+          //               (states) => Colors.black12),
+          //           onSelected: (value) {
+          //             selected.add(7);
+          //             setState(() {
+          //
+          //             });
+          //           }),
+          //     ),
+          //     Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: ChoiceChip(
+          //           label: const Text("8"),
+          //           selected: selected.contains(8)?true:false,
+          //           color: MaterialStateColor.resolveWith(
+          //               (states) => Colors.black12),
+          //           onSelected: (value) {
+          //             selected.add(8);
+          //             setState(() {
+          //
+          //             });
+          //           }),
+          //     ),
+          //     Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: ChoiceChip(
+          //           label: const Text("9"),
+          //           selected: selected.contains(9)?true:false,
+          //           color: MaterialStateColor.resolveWith(
+          //               (states) => Colors.black12),
+          //           onSelected:(value){
+          //             selected.add(9);
+          //           }),
+          //     ),
+          //     Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: ChoiceChip(
+          //           label: const Text("10"),
+          //           selected: is_selected,
+          //           color: MaterialStateColor.resolveWith(
+          //               (states) => Colors.black12),
+          //           onSelected: (value) {}),
+          //     ),
+          //   ],
+          // ),
   // Quantity Select
+          Row(
+            children: _productSizes.map((e) {
+              return GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _selectedSize = e;
+                  });
+                },
+                child: AnimatedContainer(
+                    width: 35,
+                    height: 34,
+                    margin: const EdgeInsets.only(right: 12),
+                    duration: const Duration(seconds: 1),
+                    decoration: BoxDecoration(
+                        color: _selectedSize == e
+                            ? Colors.blue
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Center(
+                        child: Text(
+                          e,
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w800,
+                              color: _selectedSize == e
+                                  ? Colors.white
+                                  : Colors.black),
+                        ))),
+              );
+            }).toList(),
+          ),
           Row(
             children: [
               Consumer<CountProvider>(builder: (context,value,child){
@@ -181,7 +214,7 @@ var quancontroller=TextEditingController(text: "1");
               lessStyle: TextStyle(fontWeight: FontWeight.w500),
             ),
           )
-        ],
+    ],
       ),
     );
   }

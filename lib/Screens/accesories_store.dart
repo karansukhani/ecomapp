@@ -2,6 +2,7 @@ import 'package:ecommerceapp/Products/boat_headphones.dart';
 import 'package:ecommerceapp/Products/jordan.dart';
 import 'package:flutter/material.dart';
 
+import '../constants/sizes.dart';
 import 'cart.dart';
 import 'categoriespage.dart';
 import '../helpers/helper_functions.dart';
@@ -83,6 +84,7 @@ class AccesoriesStore extends StatelessWidget {
                   //   width: 200,
                   // ),
                   Positioned(
+                    top: 0,
                     right: 5,
                     child: TextButton(
                       onPressed: () {
@@ -98,7 +100,10 @@ class AccesoriesStore extends StatelessWidget {
                 ]
             ),
           ),
+          Divider(color: Colors.white,),
           Wrap(
+            spacing: 10,
+            crossAxisAlignment: WrapCrossAlignment.start,
             children: [
               Container(
                 height: 50,
@@ -221,6 +226,8 @@ class AccesoriesStore extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(height: KSizes.spaceBtwItems,
+                width: double.infinity,),
               SizedBox(
                 height: 600,
                 child: GridView.extent(
@@ -237,6 +244,7 @@ class AccesoriesStore extends StatelessWidget {
                               borderRadius: BorderRadius.circular(5)),
                           child: Column(children: [
                             SizedBox(height:150,child: Image.asset("asset/image/boatheadphones1.webp")),
+                            const Divider(thickness: 2,),
                             const Text("Boat Rockerz 1",style: TextStyle(color: Colors.black),),
                             const Text("₹ 3,999.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
                           ],),),
@@ -246,6 +254,7 @@ class AccesoriesStore extends StatelessWidget {
                             borderRadius: BorderRadius.circular(5)),
                         child: Column(children: [
                           SizedBox(height:150,child: Image.asset("asset/image/airpods_max.jpeg")),
+                          const Divider(thickness: 2,),
                           const Text("Airpods Max",style: TextStyle(color: Colors.black),),
                           const Text("₹ 59,900.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
                         ],),),
@@ -258,6 +267,7 @@ class AccesoriesStore extends StatelessWidget {
                               borderRadius: BorderRadius.circular(5)),
                           child: Column(children: [
                             SizedBox(height:150,child: Image.asset("asset/image/jblheadphones.jpeg")),
+                            const Divider(thickness: 2,),
                             const Text("JBL x Under Armour",style: TextStyle(color: Colors.black),),
                             const Text("₹ 11,999.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
                           ],),),
@@ -267,6 +277,7 @@ class AccesoriesStore extends StatelessWidget {
                             borderRadius: BorderRadius.circular(5)),
                         child: Column(children: [
                           SizedBox(height:150,child: Image.asset("asset/image/zebronicsheadphones.webp")),
+                          const Divider(thickness: 2,),
                           const Text("Zebronics Duke",style: TextStyle(color: Colors.black),),
                           const Text("₹ 2,499.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
                         ],),),

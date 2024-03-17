@@ -98,8 +98,10 @@ class MobileStore extends StatelessWidget {
                 ]
             ),
           ),
+          Divider(color: Colors.white,),
           Wrap(
             spacing: 10,
+            crossAxisAlignment: WrapCrossAlignment.start,
             children: [
               Container(
                 height: 50,
@@ -224,9 +226,8 @@ class MobileStore extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
-                height: KSizes.spaceBtwItems,
-              ),
+              SizedBox(height: KSizes.spaceBtwItems,
+                width: double.infinity,),
               SizedBox(
                 height: 600,
                 child: GridView.extent(
@@ -264,6 +265,7 @@ class MobileStore extends StatelessWidget {
                                   height: 150,
                                   child:
                                       Image.asset("asset/image/iph15promax.jpg")),
+                              const Divider(thickness: 2,),
                               Text(
                                 "iPhone 15 Pro Max",
                                 style: TextStyle(color: Colors.black),
@@ -281,7 +283,7 @@ class MobileStore extends StatelessWidget {
                          Navigator.push(context, MaterialPageRoute(builder: (context)=>S24ultra()));
                        },
                         child: Container(
-                          height: 300,
+                          // height: 400,
                           width: 220,
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.black),
@@ -291,6 +293,7 @@ class MobileStore extends StatelessWidget {
                               SizedBox(
                                   height: 120,
                                   child: Image.asset("asset/image/s24ultra.jpg")),
+                              const Divider(thickness: 2,),
                               Text(
                                 "Samsung Galaxy S24 Ultra",
                                 style: TextStyle(color: Colors.black),
@@ -322,6 +325,7 @@ class MobileStore extends StatelessWidget {
                                 )
                               ],
                             ),
+                            const Divider(thickness: 2,),
                             Text(
                               "iPhone 15 Pro (256GB)",
                               style: TextStyle(color: Colors.black),
@@ -338,7 +342,7 @@ class MobileStore extends StatelessWidget {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>S23ultra()));
                         },
                         child: Container(
-                          // height: 250,
+                          height: 300,
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.black),
                               borderRadius: BorderRadius.circular(5)),
@@ -357,6 +361,7 @@ class MobileStore extends StatelessWidget {
                                       child: Text("-27%"),
                                     ))
                               ]),
+                              const Divider(thickness: 2,),
                               Text(
                                 "Samsung Galaxy S23 Ultra",
                                 style: TextStyle(color: Colors.black),

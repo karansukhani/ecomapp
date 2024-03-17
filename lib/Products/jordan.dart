@@ -16,6 +16,8 @@ class Jordan extends StatefulWidget {
 }
 
 class _JordanState extends State<Jordan> {
+  final List<String> product_Sizes = ['6', '7', '8', '9','10'];
+  String selected_Size='6';
   var is_selected=false;
   var quan=1;
   var quancontroller=TextEditingController(text: "1");
@@ -57,55 +59,87 @@ class _JordanState extends State<Jordan> {
             child: Text("Stock : InStock"),
           ),
           const Text("Size"),
+          // Row(
+          //   children: [
+          //     Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: ChoiceChip(
+          //           label: const Text("6"),
+          //           selected: is_selected,
+          //           color: MaterialStateColor.resolveWith(
+          //                   (states) => Colors.black12),
+          //           onSelected: (value) {}),
+          //     ),
+          //     Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: ChoiceChip(
+          //           label: const Text("7"),
+          //           selected: is_selected,
+          //           color: MaterialStateColor.resolveWith(
+          //                   (states) => Colors.black12),
+          //        onSelected: (is_selected){
+          //        }, ),
+          //     ),
+          //     Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: ChoiceChip(
+          //           label: const Text("8"),
+          //           selected: is_selected,
+          //           color: MaterialStateColor.resolveWith(
+          //                   (states) => Colors.black12),
+          //           onSelected: (value) {}),
+          //     ),
+          //     Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: ChoiceChip(
+          //           label: const Text("9"),
+          //           selected: is_selected,
+          //           color: MaterialStateColor.resolveWith(
+          //                   (states) => Colors.black12),
+          //           onSelected: (value) {}),
+          //     ),
+          //     Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: ChoiceChip(
+          //           label: const Text("10"),
+          //           selected: is_selected,
+          //           color: MaterialStateColor.resolveWith(
+          //                   (states) => Colors.black12),
+          //           onSelected: (value) {}),
+          //     ),
+          //   ],
+          // ),
           Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ChoiceChip(
-                    label: const Text("6"),
-                    selected: is_selected,
-                    color: MaterialStateColor.resolveWith(
-                            (states) => Colors.black12),
-                    onSelected: (value) {}),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ChoiceChip(
-                    label: const Text("7"),
-                    selected: is_selected,
-                    color: MaterialStateColor.resolveWith(
-                            (states) => Colors.black12),
-                 onSelected: (is_selected){
-                 }, ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ChoiceChip(
-                    label: const Text("8"),
-                    selected: is_selected,
-                    color: MaterialStateColor.resolveWith(
-                            (states) => Colors.black12),
-                    onSelected: (value) {}),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ChoiceChip(
-                    label: const Text("9"),
-                    selected: is_selected,
-                    color: MaterialStateColor.resolveWith(
-                            (states) => Colors.black12),
-                    onSelected: (value) {}),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ChoiceChip(
-                    label: const Text("10"),
-                    selected: is_selected,
-                    color: MaterialStateColor.resolveWith(
-                            (states) => Colors.black12),
-                    onSelected: (value) {}),
-              ),
-            ],
+            //Map Function will return the returning widget the no of times =elements in list
+            children: product_Sizes.map((e) {
+              return GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selected_Size = e;
+                  });
+                },
+                child: AnimatedContainer(
+                    width: 35,
+                    height: 34,
+                    margin: const EdgeInsets.only(right: 12),
+                    duration: const Duration(seconds: 1),
+                    decoration: BoxDecoration(
+                        color: selected_Size == e
+                            ? Colors.blue
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Center(
+                        child: Text(
+                          e,
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w800,
+                              color: selected_Size == e
+                                  ? Colors.white
+                                  : Colors.black),
+                        ))),
+              );
+            }).toList(),
           ),
 //Quantity selection
           Row(
