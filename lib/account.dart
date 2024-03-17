@@ -1,10 +1,10 @@
 import 'package:ecommerceapp/Screens/addresses.dart';
 import 'package:ecommerceapp/Screens/orders.dart';
-import 'package:ecommerceapp/cart.dart';
+import 'package:ecommerceapp/Screens/cart.dart';
 import 'package:ecommerceapp/constants/list_tile_title.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
 import 'package:ecommerceapp/helpers/helper_functions.dart';
-import 'package:ecommerceapp/profile.dart';
+import 'package:ecommerceapp/Screens/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

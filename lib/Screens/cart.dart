@@ -1,5 +1,6 @@
 import 'package:ecommerceapp/Products/adidas.dart';
 import 'package:ecommerceapp/Provider/count_provider.dart';
+import 'package:ecommerceapp/checkout.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -54,7 +55,7 @@ class _CartStateState extends State<CartState> {
                 InkWell(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Adidas()));
+                        MaterialPageRoute(builder: (context) => const Adidas()));
                   },
                   child: const CircleAvatar(
                     backgroundImage: AssetImage(
@@ -116,7 +117,9 @@ class _CartStateState extends State<CartState> {
         ),
       ),
       bottomNavigationBar: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Checkout()));
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.blue,
           padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),

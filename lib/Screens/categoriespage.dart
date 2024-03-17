@@ -1,6 +1,6 @@
-import 'package:ecommerceapp/accesories_store.dart';
-import 'package:ecommerceapp/perfumespage.dart';
-import 'package:ecommerceapp/sneakerstore.dart';
+import 'package:ecommerceapp/Screens/accesories_store.dart';
+import 'package:ecommerceapp/Screens/perfumespage.dart';
+import 'package:ecommerceapp/Screens/sneakerstore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

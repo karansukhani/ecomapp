@@ -1,19 +1,19 @@
 import 'package:ecommerceapp/Products/jordan.dart';
 import 'package:ecommerceapp/Shop/controller/home_controller.dart';
-import 'package:ecommerceapp/accesories_store.dart';
-import 'package:ecommerceapp/cart.dart';
-import 'package:ecommerceapp/categoriespage.dart';
+import 'package:ecommerceapp/Screens/accesories_store.dart';
+import 'package:ecommerceapp/Screens/cart.dart';
+import 'package:ecommerceapp/Screens/categoriespage.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
 import 'package:ecommerceapp/constants/text_strings.dart';
 import 'package:ecommerceapp/helpers/helper_functions.dart';
-import 'package:ecommerceapp/login.dart';
-import 'package:ecommerceapp/mobilestore.dart';
+import 'package:ecommerceapp/Screens/login.dart';
+import 'package:ecommerceapp/Screens/mobilestore.dart';
 import 'package:provider/provider.dart';
 // import 'package:ecommerceapp/navigation_bar.dart';
-import 'package:ecommerceapp/perfumespage.dart';
+import 'package:ecommerceapp/Screens/perfumespage.dart';
 // import 'package:ecommerceapp/profile.dart';
 // import 'package:ecommerceapp/sneakerspage.dart';
-import 'package:ecommerceapp/sneakerstore.dart';
+import 'package:ecommerceapp/Screens/sneakerstore.dart';
 // import 'package:ecommerceapp/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -264,7 +264,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: const EdgeInsets.all(8.0),
                     child: TextButton(
                       onPressed: (){
-                       Navigator.push(context, MaterialPageRoute(builder: (context)=>AccesoriesStore()));
+                       Navigator.push(context, MaterialPageRoute(builder: (context)=>const AccesoriesStore()));
                       },
                       child: Column(
                         children: [
@@ -391,7 +391,7 @@ class _MyHomePageState extends State<MyHomePage> {
           InkWell(
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Adidas()));
+                  context, MaterialPageRoute(builder: (context) => const Adidas()));
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 20),
@@ -515,7 +515,7 @@ class _MyHomePageState extends State<MyHomePage> {
           InkWell(
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Adidas()));
+                  context, MaterialPageRoute(builder: (context) => const Adidas()));
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 20),

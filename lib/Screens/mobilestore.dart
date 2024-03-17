@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 import 'cart.dart';
 import 'categoriespage.dart';
-import 'helpers/helper_functions.dart';
+import '../helpers/helper_functions.dart';
 
 class MobileStore extends StatelessWidget {
 // final TabController tabController=TabController(length: 4, vsync: AnimatedListState());

@@ -1,8 +1,7 @@
 import 'package:ecommerceapp/account.dart';
-import 'package:ecommerceapp/cart.dart';
+import 'package:ecommerceapp/Screens/cart.dart';
 import 'package:ecommerceapp/helpers/helper_functions.dart';
 import 'package:ecommerceapp/main.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +22,7 @@ class Navigationmenu extends StatelessWidget {
           onDestinationSelected: (index) =>
               controller.selectedIndex.value = index,
           backgroundColor: dark ? Colors.black : Colors.white,
-          destinations: [
+          destinations: const [
             NavigationDestination(icon: Icon(Icons.home), label: "Home"),
             NavigationDestination(
                 icon: Icon(Icons.shopping_cart_outlined), label: "Cart"),
@@ -40,5 +39,5 @@ class Navigationmenu extends StatelessWidget {
 class Navigationcontroller extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
-  final screens = [MyHomePage(), CartState(), Account()];
+  final screens = [const MyHomePage(), CartState(), Account()];
 }

@@ -1,10 +1,10 @@
 import 'package:ecommerceapp/constants/colors.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
 import 'package:ecommerceapp/constants/text_strings.dart';
-import 'package:ecommerceapp/forget_pass.dart';
+import 'package:ecommerceapp/Screens/forget_pass.dart';
 import 'package:ecommerceapp/helpers/helper_functions.dart';
 import 'package:ecommerceapp/navigation_bar.dart';
-import 'package:ecommerceapp/signup.dart';
+import 'package:ecommerceapp/Screens/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

@@ -1,5 +1,5 @@
 // import 'dart:js_interop_unsafe';
-import 'package:ecommerceapp/cart.dart';
+import 'package:ecommerceapp/Screens/cart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
