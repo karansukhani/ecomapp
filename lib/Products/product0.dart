@@ -4,8 +4,8 @@ import 'package:ecommerceapp/Screens/cart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/services.dart';
 import 'package:readmore/readmore.dart';
+// ignore: depend_on_referenced_packages
 import 'package:provider/provider.dart';
 
 
@@ -19,6 +19,7 @@ class Adidas extends StatefulWidget {
 class _AdidasState extends State<Adidas> {
   final List<String> _productSizes = ['6', '7', '8', '9','10'];
   String _selectedSize='6';
+// ignore: non_constant_identifier_names
 var is_selected=false;
 List<int> selected=[];
  // var quan=1;
@@ -191,7 +192,9 @@ var quancontroller=TextEditingController(text: "1");
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
               onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder:(context) =>CartState()));
+                setState(() {
+                  Navigator.push(context, MaterialPageRoute(builder:(context) =>  CartState()));
+                });
               },
               style: ButtonStyle(
                   backgroundColor:

@@ -1,4 +1,4 @@
-import 'package:ecommerceapp/Products/adidas.dart';
+import 'package:ecommerceapp/Products/product0.dart';
 import 'package:ecommerceapp/Provider/count_provider.dart';
 import 'package:ecommerceapp/checkout.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class CartState extends StatefulWidget {
-  var quantity = 1;
+
 
   CartState({super.key});
   // CartState(
@@ -18,12 +18,16 @@ class CartState extends StatefulWidget {
 }
 
 class _CartStateState extends State<CartState> {
+   var pno=1;
   // var nameofproduct;
-  var item = ["Adidas"];
+  String? image;
+  var quantity = 1;
+  var Plist = ["Adidas","Nike Air Jordans","iPhone 15 Pro Max"];
 
   @override
   Widget build(BuildContext context) {
     print("build");
+    // final productprovider=Provider.of<ProductProvider>(context);
     // final quanProvider = Provider.of<CountProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
@@ -41,7 +45,7 @@ class _CartStateState extends State<CartState> {
           separatorBuilder: (_, __) => const SizedBox(
             height: 10,
           ),
-          itemCount: item.length,
+          itemCount: Plist.length,
           itemBuilder: (_, index) => Container(
             decoration: BoxDecoration(
               shape: BoxShape.rectangle,
@@ -59,7 +63,7 @@ class _CartStateState extends State<CartState> {
                   },
                   child: const CircleAvatar(
                     backgroundImage: AssetImage(
-                      "asset/image/Adidas-1.jpeg",
+                     "asset/image/Adidas-1.jpeg",
                     ),
                   ),
                 ),

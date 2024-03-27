@@ -1,5 +1,5 @@
-import 'package:ecommerceapp/Products/adidas.dart';
-import 'package:ecommerceapp/Products/jordan.dart';
+import 'package:ecommerceapp/Products/product0.dart';
+import 'package:ecommerceapp/Products/product2.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

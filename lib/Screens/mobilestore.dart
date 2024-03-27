@@ -1,4 +1,4 @@
-import 'package:ecommerceapp/Products/15promax.dart';
+import 'package:ecommerceapp/Products/product3.dart';
 import 'package:ecommerceapp/Products/s23ultra.dart';
 import 'package:ecommerceapp/Products/s24ultra.dart';
 import 'package:ecommerceapp/constants/sizes.dart';

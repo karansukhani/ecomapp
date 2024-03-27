@@ -39,8 +39,8 @@ class _IPH15ProMaxState extends State<IPH15ProMax> {
             height: 20,
             width: double.infinity,
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text("Apple iPhone 15 Pro Max (256 GB) - Blue Titanium",),
           ),
           // Padding(
@@ -50,21 +50,21 @@ class _IPH15ProMaxState extends State<IPH15ProMax> {
           //     style: TextStyle(fontWeight: FontWeight.bold),
           //   ),
           // ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text("-7% ₹1,48,900"),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text("Stock : InStock"),
           ),
-          Text("Size"),
+          const Text("Size"),
           Row(
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ChoiceChip(
-                    label: Text("12GB+256GB"),
+                    label: const Text("12GB+256GB"),
                     selected: is_selected,
                     color: MaterialStateColor.resolveWith(
                             (states) => Colors.black12),
@@ -73,7 +73,7 @@ class _IPH15ProMaxState extends State<IPH15ProMax> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ChoiceChip(
-                    label: Text("12GB+512GB"),
+                    label: const Text("12GB+512GB"),
                     selected: is_selected,
                     color: MaterialStateColor.resolveWith(
                             (states) => Colors.black12),
@@ -82,7 +82,7 @@ class _IPH15ProMaxState extends State<IPH15ProMax> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ChoiceChip(
-                    label: Text("12GB+1TB"),
+                    label: const Text("12GB+1TB"),
                     selected: is_selected,
                     color: MaterialStateColor.resolveWith(
                             (states) => Colors.black12),
@@ -108,7 +108,7 @@ class _IPH15ProMaxState extends State<IPH15ProMax> {
               // ),
             ],
           ),
-          Text("Color"),
+          const Text("Color"),
           Row(
             children: [
               Padding(
@@ -116,7 +116,7 @@ class _IPH15ProMaxState extends State<IPH15ProMax> {
                 child: SizedBox(
                   width: 80,
                   child: ChoiceChip(
-                    label: Column(children: [
+                    label: const Column(children: [
                       CircleAvatar(backgroundColor: Colors.black,),
                       Text("Black Titanium",style: TextStyle(color: Colors.black),),
                     ],),
@@ -130,7 +130,7 @@ class _IPH15ProMaxState extends State<IPH15ProMax> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ChoiceChip(
-                  label: Column(children: [
+                  label: const Column(children: [
                     CircleAvatar(backgroundColor: Colors.blueGrey,),
                     Text("Blue Titanium",style: TextStyle(color: Colors.black),),
                   ],),
@@ -175,7 +175,7 @@ class _IPH15ProMaxState extends State<IPH15ProMax> {
               // ),
             ],
           ),
-          Row(
+          const Row(
             children: [Text("Brand :",style:TextStyle(fontWeight: FontWeight.bold) ,),
               SizedBox(width: KSizes.defaultSpace,),
               Text(("Apple"))],
@@ -212,7 +212,7 @@ class _IPH15ProMaxState extends State<IPH15ProMax> {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder:(context) =>CartState()));
               },
-              child: Center(
+              child: const Center(
                 child: Text("Add to Cart",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
               ),
               style: ButtonStyle(
@@ -220,8 +220,8 @@ class _IPH15ProMaxState extends State<IPH15ProMax> {
                   MaterialStateColor.resolveWith((states) => Colors.blue)),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: ReadMoreText(
  "   FORGED IN TITANIUM — iPhone 15 Pro Max has a strong and light aerospace-grade titanium design with a textured matte-glass back. It also features a Ceramic Shield front that’s tougher than any smartphone glass. And it’s splash, water, and dust resistant."
               ,trimLines: 4,
@@ -233,8 +233,8 @@ class _IPH15ProMaxState extends State<IPH15ProMax> {
               lessStyle: TextStyle(fontWeight: FontWeight.w500),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: ReadMoreText(
 "ADVANCED DISPLAY — The 6.7” Super Retina XDR display with ProMotion ramps up refresh rates to 120Hz when you need exceptional graphics performance. Dynamic Island bubbles up alerts and Live Notifications. Plus, with Always-On display, your Lock Screen stays glanceable, so you don’t have to tap it to stay in the know."
               ,trimLines: 4,

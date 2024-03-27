@@ -1,4 +1,4 @@
-import 'package:ecommerceapp/Products/jordan.dart';
+import 'package:ecommerceapp/Products/product2.dart';
 import 'package:ecommerceapp/Shop/controller/home_controller.dart';
 import 'package:ecommerceapp/Screens/accesories_store.dart';
 import 'package:ecommerceapp/Screens/cart.dart';
@@ -18,7 +18,7 @@ import 'package:ecommerceapp/Screens/sneakerstore.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
-import 'Products/adidas.dart';
+import 'Products/product0.dart';
 import 'Provider/count_provider.dart';
 
 void main() {

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:ecommerceapp/constants/colors.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
 import 'package:ecommerceapp/constants/text_strings.dart';
@@ -7,7 +8,26 @@ import 'package:ecommerceapp/navigation_bar.dart';
 import 'package:ecommerceapp/Screens/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart'as http;
 
+
+postdata(String email,String pass)
+async{
+  final uri = Uri.parse("https://e-com.iappsolution.tech/api/user/register");
+  http.Response response=await http.post(uri,body:{
+    'email':email,
+    'password':pass
+  });
+  if(response.statusCode==200)
+  {
+    print(jsonDecode(response.body));
+  }
+  else
+  {
+    print("failed");
+  }
+}
+// ignore: must_be_immutable
 class LoginState extends StatelessWidget {
   // const LoginState({super.key});
 
@@ -92,6 +112,7 @@ class LoginState extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                         onPressed: () {
+          postdata(mailcontroller.text.toString(), passcontroller.text.toString());
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(

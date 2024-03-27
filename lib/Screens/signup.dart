@@ -1,14 +1,41 @@
+import 'dart:convert';
+
 import 'package:ecommerceapp/constants/sizes.dart';
 import 'package:ecommerceapp/constants/text_strings.dart';
 import 'package:ecommerceapp/Screens/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 import '../constants/colors.dart';
 import '../helpers/helper_functions.dart';
 
+postdata(String fname,String lname,String email,String Phoneno,String pass)
+async{
+  final uri = Uri.parse("https://e-com.iappsolution.tech/api/user/register");
+  http.Response response=await http.post(uri,body:{
+    'firstname':fname,
+    'lastname': lname,
+    'email':email,
+    'telephone': Phoneno,
+    'password':pass
+  });
+  if(response.statusCode==200)
+  {
+    print(jsonDecode(response.body));
+  }
+  else
+  {
+    print("failed");
+  }
+}
 class Signup extends StatelessWidget
 {
+  final fname=TextEditingController();
+  final lname=TextEditingController();
+  final email=TextEditingController();
+  final phone=TextEditingController();
+  final pass=TextEditingController();
   @override
   Widget build(BuildContext context) {
     final dark = KHelperFunctions.isDarkMode(context);
@@ -30,6 +57,7 @@ class Signup extends StatelessWidget
                       labelText: KTexts.firstName,
                       prefixIcon: Icon(Icons.account_circle),
                     ),
+                    controller: fname,
                   ),
                  SizedBox(width: KSizes.spaceBtwInputFields,),
                  TextFormField(
@@ -37,6 +65,7 @@ class Signup extends StatelessWidget
                       labelText: KTexts.lastName,
                       prefixIcon: Icon(Icons.account_circle),
                     ),
+                   controller: lname,
                   ),
                  SizedBox(height: KSizes.spaceBtwItems,),
                  TextFormField(
@@ -51,6 +80,7 @@ class Signup extends StatelessWidget
                      labelText: KTexts.email,
                      prefixIcon: Icon(Icons.mail),
                    ),
+                   controller: email,
                  ),
                  SizedBox(height: KSizes.spaceBtwItems,),
                  TextFormField(
@@ -59,6 +89,7 @@ class Signup extends StatelessWidget
                      labelText: KTexts.phoneNo,
                      prefixIcon: Icon(Icons.mail),
                    ),
+                   controller: phone,
                  ),
                  SizedBox(height: KSizes.spaceBtwItems,),
                  TextFormField(
@@ -67,6 +98,7 @@ class Signup extends StatelessWidget
                      prefixIcon: Icon(Icons.password),
                      suffixIcon: Icon(Icons.remove_red_eye),
                    ),
+                   controller: pass,
                  ),
                  Row(
                    children: [
@@ -91,9 +123,10 @@ class Signup extends StatelessWidget
                  ),
                  SizedBox(height: KSizes.spaceBtwSections,),
                  SizedBox(width: double.infinity,child: ElevatedButton(onPressed: (){
+                   postdata(fname.text.toString(), lname.text.toString(), email.text.toString(), phone.text.toString(), pass.text.toString());
                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginState()));
                  }, child: Text(KTexts.createAccount)),),
-                 SizedBox(height: KSizes.spaceBtwSections,),
+                 const SizedBox(height: KSizes.spaceBtwSections,),
                  Row(
                    mainAxisAlignment: MainAxisAlignment.center,
                    children: [

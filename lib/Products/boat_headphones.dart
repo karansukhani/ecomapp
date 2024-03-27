@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:readmore/readmore.dart';
 import 'package:provider/provider.dart';
 
@@ -33,7 +34,7 @@ class BoatState extends State<BoatHeadphones> {
               options: CarouselOptions(height: 200),
             ),
           ),
-          Container(
+          const SizedBox(
             height: 20,
             width: double.infinity,
           ),
@@ -41,16 +42,16 @@ class BoatState extends State<BoatHeadphones> {
             padding: const EdgeInsets.only(top: 5,bottom: 5),
             child: Text("Rockerz 650 DC Edition",style: Theme.of(context).textTheme.bodyMedium,),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text("-50% ₹1,999"),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text("Stock : InStock"),
           ),
 
-          Row(
+          const Row(
             children: [Text("Brand :",style:TextStyle(fontWeight: FontWeight.bold) ,),
               SizedBox(width: KSizes.defaultSpace,),
               Text(("Boat"))],
@@ -87,16 +88,16 @@ class BoatState extends State<BoatHeadphones> {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder:(context) =>CartState()));
               },
-              child: Center(
-                child: Text("Add to Cart",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-              ),
               style: ButtonStyle(
                   backgroundColor:
                   MaterialStateColor.resolveWith((states) => Colors.blue)),
+              child: const Center(
+                child: Text("Add to Cart",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+              ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5,bottom: 5),
+          const Padding(
+            padding: EdgeInsets.only(top: 5,bottom: 5),
             child: ReadMoreText(
             "  Bluetooth Headphone with 40mm Dynamic Drivers, 60HRS Playback, ASAP™ Charge, Dual EQ Modes"
 

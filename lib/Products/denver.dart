@@ -1,10 +1,11 @@
 // import 'dart:js_interop_unsafe';
 import 'package:ecommerceapp/Screens/cart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/services.dart';
+// ignore: depend_on_referenced_packages
 import 'package:readmore/readmore.dart';
+// ignore: depend_on_referenced_packages
 import 'package:provider/provider.dart';
 
 import '../Provider/count_provider.dart';
@@ -33,7 +34,7 @@ class _DenverState extends State<Denver> {
             ],
             options: CarouselOptions(height: 200),
           ),
-          Container(
+          const SizedBox(
             height: 20,
             width: double.infinity,
           ),
