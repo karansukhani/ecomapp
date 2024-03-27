@@ -13,7 +13,7 @@ import 'package:http/http.dart'as http;
 
 postdata(String email,String pass)
 async{
-  final uri = Uri.parse("https://e-com.iappsolution.tech/api/user/register");
+  final uri = Uri.parse("https://e-com.iappsolution.tech/api/user/login");
   http.Response response=await http.post(uri,body:{
     'email':email,
     'password':pass
