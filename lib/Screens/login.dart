@@ -70,6 +70,7 @@ class LoginState extends StatelessWidget {
                     prefixIcon: Icon(Icons.account_circle_rounded),
                     labelText: "Email",
                   ),
+                  controller: mailcontroller,
                 ),
                 SizedBox(
                   height: 8,
@@ -80,6 +81,7 @@ class LoginState extends StatelessWidget {
                   decoration: InputDecoration(
                       prefixIcon: Icon(Icons.remove_red_eye),
                       labelText: "Password"),
+                  controller: passcontroller,
                 ),
                 SizedBox(
                   height: 32,
