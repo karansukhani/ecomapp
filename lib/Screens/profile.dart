@@ -1,9 +1,10 @@
 import 'package:ecommerceapp/account.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Profilepage extends StatefulWidget {
+  const Profilepage({super.key});
+
   @override
   State<Profilepage> createState() => _ProfilepageState();
 }
@@ -14,7 +15,7 @@ class _ProfilepageState extends State<Profilepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Profile",
           style: TextStyle(color: Colors.white),
         ),
@@ -23,17 +24,17 @@ class _ProfilepageState extends State<Profilepage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Center(
+            const Center(
               child: CircleAvatar(
                 backgroundImage: AssetImage("asset/image/admin.png"),
               ),
             ),
-            TextButton(onPressed: () {}, child: Text("Change Profile Picture")),
-            SizedBox(
+            TextButton(onPressed: () {}, child: const Text("Change Profile Picture")),
+            const SizedBox(
               height: KSizes.spaceBtwItems / 2,
             ),
-            Divider(),
-            SizedBox(
+            const Divider(),
+            const SizedBox(
               height: KSizes.spaceBtwItems / 2,
             ),
             Text(
@@ -45,14 +46,14 @@ class _ProfilepageState extends State<Profilepage> {
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
                 initialValue: "Karan Sukhani",
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     labelText: "Full  Name",
                     hintText: "Full Name",
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: KSizes.spaceBtwInputFields,
             ),
             // Username
@@ -60,18 +61,18 @@ class _ProfilepageState extends State<Profilepage> {
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
                 initialValue: "karan_sukhani",
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     labelText: "Username",
                     hintText: "Username",
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: KSizes.spaceBtwItems / 2,
             ),
-            Divider(),
-            SizedBox(
+            const Divider(),
+            const SizedBox(
               height: KSizes.spaceBtwItems / 2,
             ),
             Text(
@@ -83,14 +84,14 @@ class _ProfilepageState extends State<Profilepage> {
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
                 initialValue: "ks@gmail.com",
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     labelText: "E-mail ID",
                     hintText: "E-mail ID",
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: KSizes.spaceBtwInputFields,
             ),
             // Mobile No
@@ -98,20 +99,20 @@ class _ProfilepageState extends State<Profilepage> {
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
                 initialValue: "+91762289739",
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     labelText: "Mobile No.",
                     hintText: "Mobile No.",
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: KSizes.spaceBtwInputFields,
             ),
             // Gender
             Row(
               children: [
-                Text(
+                const Text(
                   "Gender :",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
@@ -123,7 +124,7 @@ class _ProfilepageState extends State<Profilepage> {
                         _value = "Male";
                       });
                     }),
-                Text("Male"),
+                const Text("Male"),
                 Radio(
                     value: "Female",
                     groupValue: _value,
@@ -132,10 +133,10 @@ class _ProfilepageState extends State<Profilepage> {
                         _value = "Female";
                       });
                     }),
-                Text("Female")
+                const Text("Female")
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: KSizes.spaceBtwInputFields,
             ),
             //Date of Birth
@@ -143,14 +144,14 @@ class _ProfilepageState extends State<Profilepage> {
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
                 initialValue: "10 Oct,1979",
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     labelText: "Date Of Birth",
                     hintText: "Date Of Birth",
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: KSizes.spaceBtwItems,
             ),
             Center(
@@ -158,31 +159,31 @@ class _ProfilepageState extends State<Profilepage> {
                 onPressed: () {
                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Account()));
                 },
-                child: Text(
+                child: const Text(
                   "Submit",
                   style: TextStyle(color: Colors.blue),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: KSizes.spaceBtwItems,
             ),
             Center(
               child: TextButton(
                 onPressed: () {},
-                child: Text(
+                child: const Text(
                   "Delete Account",
                   style: TextStyle(color: Colors.red),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: KSizes.spaceBtwItems,
             ),
             Center(
               child: TextButton(
                 onPressed: () {},
-                child: Text("Logout"),
+                child: const Text("Logout"),
               ),
             ),
           ],

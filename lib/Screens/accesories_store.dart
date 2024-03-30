@@ -1,5 +1,5 @@
 import 'package:ecommerceapp/Products/boat_headphones.dart';
-import 'package:ecommerceapp/Products/product2.dart';
+import 'package:ecommerceapp/Products/Jordan.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/sizes.dart';

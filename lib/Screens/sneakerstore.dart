@@ -1,15 +1,15 @@
-import 'package:ecommerceapp/Products/product0.dart';
-import 'package:ecommerceapp/Products/product2.dart';
+import 'package:ecommerceapp/Products/Adidas.dart';
+import 'package:ecommerceapp/Products/Jordan.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'cart.dart';
 import 'categoriespage.dart';
 import '../helpers/helper_functions.dart';
 
 class SneakerStore extends StatelessWidget {
+  const SneakerStore({super.key});
+
 // final TabController tabController=TabController(length: 4, vsync: AnimatedListState());
   @override
   Widget build(BuildContext context) {
@@ -68,7 +68,7 @@ class SneakerStore extends StatelessWidget {
                   )),
             ),
             //Brand Grid
-            Container(
+            SizedBox(
               width: double.infinity,
               height: 30,
               child: Stack(
@@ -263,15 +263,20 @@ class SneakerStore extends StatelessWidget {
                             const Text("₹ 29000.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
                           ],),),
                       ),
-                      Container(height: 100,
-                        decoration: BoxDecoration(border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(5)),
-                        child: Column(children: [
-                          SizedBox(height:150,child: Image.asset("asset/image/bully.webp")),
-                          const Divider(thickness: 2,),
-                          const Text("BULLY SNEAKER ..",style: TextStyle(color: Colors.black),),
-                          const Text("₹ 29000.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
-                        ],),),
+                      InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const Adidas()));
+                        },
+                        child: Container(height: 100,
+                          decoration: BoxDecoration(border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(5)),
+                          child: Column(children: [
+                            SizedBox(height:150,child: Image.asset("asset/image/bully.webp")),
+                            const Divider(thickness: 2,),
+                            const Text("BULLY SNEAKER ..",style: TextStyle(color: Colors.black),),
+                            const Text("₹ 29000.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
+                          ],),),
+                      ),
                       InkWell(
                         onTap:(){
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>Jordan()));
@@ -286,15 +291,20 @@ class SneakerStore extends StatelessWidget {
                             const Text("₹ 29000.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
                           ],),),
                       ),
-                      Container(height: 100,
-                        decoration: BoxDecoration(border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(children: [
-                          SizedBox(height:150,child: Image.asset("asset/image/NikeDunk.png.webp")),
-                          const Divider(thickness: 2,),
-                          const Text("NIKE SB DUNK LOW ..",style: TextStyle(color: Colors.black),),
-                          const Text("₹ 43,500.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
-                        ],),),
+                      InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Jordan()));
+                        },
+                        child: Container(height: 100,
+                          decoration: BoxDecoration(border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(children: [
+                            SizedBox(height:150,child: Image.asset("asset/image/NikeDunk.png.webp")),
+                            const Divider(thickness: 2,),
+                            const Text("NIKE SB DUNK LOW ..",style: TextStyle(color: Colors.black),),
+                            const Text("₹ 43,500.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
+                          ],),),
+                      ),
 
 
                     ]

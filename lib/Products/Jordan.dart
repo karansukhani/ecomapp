@@ -1,16 +1,16 @@
 // import 'dart:js_interop_unsafe';
 import 'package:ecommerceapp/Screens/cart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/services.dart';
 import 'package:readmore/readmore.dart';
 
 import '../Provider/count_provider.dart';
 
 
 class Jordan extends StatefulWidget {
+  const Jordan({super.key});
+
   @override
   State<Jordan> createState() => _JordanState();
 }
@@ -35,13 +35,13 @@ class _JordanState extends State<Jordan> {
             ],
             options: CarouselOptions(height: 200),
           ),
-          Container(
+          const SizedBox(
             height: 20,
             width: double.infinity,
           ),
           const Padding(
             padding: EdgeInsets.only(top: 5,bottom: 5),
-            child: const Text("Nike Air Jordans",),
+            child: Text("Nike Air Jordans",),
           ),
           const Padding(
             padding: EdgeInsets.only(top: 5,bottom: 5),
@@ -173,12 +173,12 @@ class _JordanState extends State<Jordan> {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder:(context) =>CartState()));
               },
-              child: const Center(
-                child: Text("Add to Cart",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-              ),
               style: ButtonStyle(
                   backgroundColor:
                   MaterialStateColor.resolveWith((states) => Colors.blue)),
+              child: const Center(
+                child: Text("Add to Cart",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+              ),
             ),
           ),
           const Padding(

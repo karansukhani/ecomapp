@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/Products/denver.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/sizes.dart';
@@ -65,12 +66,12 @@ class PerfumeStore extends StatelessWidget {
             )),
           ),
           //Brand Grid
-          Container(
+          SizedBox(
             width: double.infinity,
             height: 30,
             child: Stack(
                 children:[
-                  Positioned(
+                  const Positioned(
                     left:5,
                     child: Text(
                       "Popular Brands",
@@ -87,7 +88,7 @@ class PerfumeStore extends StatelessWidget {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) => Categories()));
                       },
-                      child: Text(
+                      child: const Text(
                         "VIEW ALL",
                         style: TextStyle(color: Colors.blue),
                       ),
@@ -96,7 +97,7 @@ class PerfumeStore extends StatelessWidget {
                 ]
             ),
           ),
-          Divider(color: Colors.white,),
+          const Divider(color: Colors.white,),
           Wrap(
             spacing: 10,
           crossAxisAlignment: WrapCrossAlignment.start,
@@ -223,7 +224,7 @@ class PerfumeStore extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: KSizes.spaceBtwItems,
+              const SizedBox(height: KSizes.spaceBtwItems,
                 width: double.infinity,),
               SizedBox(
                 height: 600,
@@ -246,92 +247,104 @@ class PerfumeStore extends StatelessWidget {
                       //     Text("Adidas Yeezy Dunk Sneakers"),
                       //     Text("₹ 29000.00",style: TextStyle(fontWeight: FontWeight.bold),)
                       //   ],),),
-                      Container(
-                        height: 100,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                                height: 150,
-                                child: Image.asset("asset/image/denver1.jpg")),
-                            const Divider(thickness: 2,),
-                            const Text(
-                              "Denver Hamilton Mens",
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            const Text(
-                              "₹ 350",
-                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
-                            )
-                          ],
+                    InkWell(
+                      onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Denver()));},
+                        child: Container(
+                          height: 100,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                  height: 150,
+                                  child: Image.asset("asset/image/denver1.jpg")),
+                              const Divider(thickness: 2,),
+                              const Text(
+                                "Denver Hamilton Mens",
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              const Text(
+                                "₹ 350",
+                                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                      Container(
-                        height: 100,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                                height: 150,
-                                child: Image.asset("asset/image/denver2.jpg")),
-                            const Divider(thickness: 2,),
-                            const Text(
-                              "Denver Fresh Deodrant",
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            const Text(
-                              "₹ 290.00",
-                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
-                            )
-                          ],
+                      InkWell(
+                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Denver()));},
+                        child: Container(
+                          height: 100,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                  height: 150,
+                                  child: Image.asset("asset/image/denver2.jpg")),
+                              const Divider(thickness: 2,),
+                              const Text(
+                                "Denver Fresh Deodrant",
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              const Text(
+                                "₹ 290.00",
+                                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                      Container(
-                        height: 100,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                                height: 150,
-                                child: Image.asset("asset/image/denver3.jpg")),
-                            const Divider(thickness: 2,),
-                            const Text(
-                              "Denver Green Mans",
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            const Text(
-                              "₹ 290.00",
-                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 9),
-                            )
-                          ],
+                      InkWell(
+                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Denver()));},
+                        child: Container(
+                          height: 100,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                  height: 150,
+                                  child: Image.asset("asset/image/denver3.jpg")),
+                              const Divider(thickness: 2,),
+                              const Text(
+                                "Denver Green Mans",
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              const Text(
+                                "₹ 290.00",
+                                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 9),
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                      Container(
-                        height: 100,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                                height: 150,
-                                child: Image.asset("asset/image/Perfume.jpg")),
-                            const Divider(thickness: 2,),
-                            const Text(
-                              "Ocean Perfume",
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            const Text(
-                              "₹ 250.00",
-                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
-                            )
-                          ],
+                      InkWell(
+                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Denver()));},
+                        child: Container(
+                          height: 100,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                  height: 150,
+                                  child: Image.asset("asset/image/Perfume.jpg")),
+                              const Divider(thickness: 2,),
+                              const Text(
+                                "Ocean Perfume",
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              const Text(
+                                "₹ 250.00",
+                                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ]),

@@ -1,4 +1,4 @@
-import 'package:ecommerceapp/Products/product3.dart';
+import 'package:ecommerceapp/Products/15promax.dart';
 import 'package:ecommerceapp/Products/s23ultra.dart';
 import 'package:ecommerceapp/Products/s24ultra.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
@@ -306,35 +306,38 @@ class MobileStore extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Container(
-                        // height: 100,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(
-                          children: [
-                            Stack(
-                              children: [
-                                SizedBox(
-                                    height: 150,
-                                    child:
-                                        Image.asset("asset/image/15pro.jpg")),
-                                Container(
-                                  color: Colors.yellowAccent,
-                                  child: Text("-5%"),
-                                )
-                              ],
-                            ),
-                            const Divider(thickness: 2,),
-                            Text(
-                              "iPhone 15 Pro (256GB)",
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            Text(
-                              "₹ 1,27,990",
-                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
-                            )
-                          ],
+                      InkWell(
+                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>IPH15ProMax()));},
+                        child: Container(
+                          // height: 100,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: [
+                              Stack(
+                                children: [
+                                  SizedBox(
+                                      height: 150,
+                                      child:
+                                          Image.asset("asset/image/15pro.jpg")),
+                                  Container(
+                                    color: Colors.yellowAccent,
+                                    child: Text("-5%"),
+                                  )
+                                ],
+                              ),
+                              const Divider(thickness: 2,),
+                              Text(
+                                "iPhone 15 Pro (256GB)",
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              Text(
+                                "₹ 1,27,990",
+                                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                       TextButton(

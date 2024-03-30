@@ -6,7 +6,6 @@ import 'package:ecommerceapp/Screens/forget_pass.dart';
 import 'package:ecommerceapp/helpers/helper_functions.dart';
 import 'package:ecommerceapp/navigation_bar.dart';
 import 'package:ecommerceapp/Screens/signup.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart'as http;
 
@@ -34,13 +33,15 @@ class LoginState extends StatelessWidget {
   var mailcontroller = TextEditingController();
   var passcontroller = TextEditingController();
 
+  LoginState({super.key});
+
   @override
   Widget build(BuildContext context) {
     final dark = KHelperFunctions.isDarkMode(context);
     return Scaffold(
         body: SingleChildScrollView(
             child: Padding(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: Column(children: [
             /// Logo, Title & Sub-Title
             Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
@@ -54,7 +55,7 @@ class LoginState extends StatelessWidget {
                 "Login",
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Text(
@@ -66,24 +67,24 @@ class LoginState extends StatelessWidget {
                 child: Column(
               children: [
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.account_circle_rounded),
                     labelText: "Email",
                   ),
                   controller: mailcontroller,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 TextFormField(
                   obscureText: true,
                   obscuringCharacter: "*",
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.remove_red_eye),
                       labelText: "Password"),
                   controller: passcontroller,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 32,
                 ),
 
@@ -94,7 +95,7 @@ class LoginState extends StatelessWidget {
                     Row(
                       children: [
                         Checkbox(value: true, onChanged: (value) {}),
-                        Text(
+                        const Text(
                           "Remember Me",
                         ),
                       ],
@@ -102,12 +103,12 @@ class LoginState extends StatelessWidget {
                     TextButton(
                         onPressed: () {
                           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ForgetPassword()));
-                        }, child: Text("Forgot Password ?")),
+                        }, child: const Text("Forgot Password ?")),
                   ],
                 ),
                 //Forgot Password
 
-                SizedBox(
+                const SizedBox(
                   height: 32,
                 ),
                 SizedBox(
@@ -118,10 +119,10 @@ class LoginState extends StatelessWidget {
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Navigationmenu()));
+                                  builder: (context) => const Navigationmenu()));
                         },
-                        child: Text(KTexts.signIn))),
-                SizedBox(
+                        child: const Text(KTexts.signIn))),
+                const SizedBox(
                   height: KSizes.spaceBtwItems,
                 ),
                 SizedBox(
@@ -130,7 +131,7 @@ class LoginState extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>Signup()));
                     },
-                    child: Text(KTexts.createAccount),
+                    child: const Text(KTexts.createAccount),
                   ),
                 )
               ],
@@ -158,7 +159,7 @@ class LoginState extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: KSizes.spaceBtwSections,
             ),
             Row(

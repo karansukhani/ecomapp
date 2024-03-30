@@ -1,4 +1,4 @@
-import 'package:ecommerceapp/Products/product0.dart';
+import 'package:ecommerceapp/Products/Adidas.dart';
 import 'package:ecommerceapp/Provider/count_provider.dart';
 import 'package:ecommerceapp/checkout.dart';
 import 'package:flutter/material.dart';

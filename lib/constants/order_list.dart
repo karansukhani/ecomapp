@@ -1,6 +1,5 @@
 import 'package:ecommerceapp/constants/sizes.dart';
 import 'package:ecommerceapp/helpers/helper_functions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class KOrderListItems extends StatelessWidget {
@@ -10,7 +9,7 @@ class KOrderListItems extends StatelessWidget {
     KHelperFunctions.isDarkMode(context);
     return ListView.separated(
       itemCount: 10,
-      separatorBuilder: (__,index)=>SizedBox(height: KSizes.spaceBtwItems,),
+      separatorBuilder: (__,index)=>const SizedBox(height: KSizes.spaceBtwItems,),
       itemBuilder:(__,index)=> Container(
 
         decoration: BoxDecoration(
@@ -25,8 +24,8 @@ class KOrderListItems extends StatelessWidget {
             Row(
               children: [
               //Icon
-                Icon(Icons.local_shipping),
-                SizedBox(width: KSizes.spaceBtwItems/2,),
+                const Icon(Icons.local_shipping),
+                const SizedBox(width: KSizes.spaceBtwItems/2,),
 
                 //Processing
                 Expanded(
@@ -40,11 +39,11 @@ class KOrderListItems extends StatelessWidget {
                     ],
                   ),
                 ),
-                IconButton(onPressed: (){}, icon: Icon(Icons.chevron_right,size: KSizes.iconSm,)),
+                IconButton(onPressed: (){}, icon: const Icon(Icons.chevron_right,size: KSizes.iconSm,)),
 
               ],
             ),
-            SizedBox(height: KSizes.spaceBtwItems/2,),
+            const SizedBox(height: KSizes.spaceBtwItems/2,),
             // Roe #2
             Row(
               children: [
@@ -52,8 +51,8 @@ class KOrderListItems extends StatelessWidget {
                   child: Row(
                     children: [
                     //Icon
-                      Icon(Icons.flag),
-                      SizedBox(width: KSizes.spaceBtwItems/2,),
+                      const Icon(Icons.flag),
+                      const SizedBox(width: KSizes.spaceBtwItems/2,),
 
                       //Processing
                       Expanded(
@@ -76,8 +75,8 @@ class KOrderListItems extends StatelessWidget {
                   child: Row(
                     children: [
                       //Icon
-                      Icon(Icons.perm_contact_calendar),
-                      SizedBox(width: KSizes.spaceBtwItems/2,),
+                      const Icon(Icons.perm_contact_calendar),
+                      const SizedBox(width: KSizes.spaceBtwItems/2,),
 
                       //Processing
                       Expanded(

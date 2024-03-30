@@ -12,6 +12,8 @@ import '../Provider/count_provider.dart';
 
 
 class Denver extends StatefulWidget {
+  const Denver({super.key});
+
   @override
   State<Denver> createState() => _DenverState();
 }
@@ -139,12 +141,12 @@ class _DenverState extends State<Denver> {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder:(context) =>CartState()));
               },
-              child: const Center(
-                child: Text("Add to Cart",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-              ),
               style: ButtonStyle(
                   backgroundColor:
                   MaterialStateColor.resolveWith((states) => Colors.blue)),
+              child: const Center(
+                child: Text("Add to Cart",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+              ),
             ),
           ),
           const Padding(
