@@ -1,25 +1,26 @@
-import 'package:ecommerceapp/Products/Adidas.dart';
-import 'package:ecommerceapp/Products/Jordan.dart';
+import 'package:ecommerceapp/Products/15promax.dart';
+import 'package:ecommerceapp/Products/s23ultra.dart';
+import 'package:ecommerceapp/Products/s24ultra.dart';
 import 'package:flutter/material.dart';
 // import 'package:readmore/readmore.dart';
 
-class Footwear extends StatefulWidget {
-  const Footwear({super.key});
+class Mobile extends StatefulWidget {
+  const Mobile({super.key});
 
   @override
   State<StatefulWidget> createState() {
-    return Footwear_State();
+    return Mobile_State();
   }
 }
 
-class Footwear_State extends State<Footwear> {
+class Mobile_State extends State<Mobile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: const Text(
-          "Footwear",
+          "Smartphone",
           style: TextStyle(color: Colors.white),
         ),
         leading: const BackButton(
@@ -31,7 +32,7 @@ class Footwear_State extends State<Footwear> {
           InkWell(
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => const Adidas()));
+                  context, MaterialPageRoute(builder: (context) => const S23ultra()));
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 20),
@@ -60,7 +61,7 @@ class Footwear_State extends State<Footwear> {
                         ]),
                         child: Stack(
                           children: [
-                            Image.asset("asset/image/Adidas-1.jpeg"),
+                            Image.asset("asset/image/s23ultra.jpg"),
                             Positioned(
                                 top: 10,
                                 left: 4,
@@ -69,7 +70,7 @@ class Footwear_State extends State<Footwear> {
                                   width: 40,
                                   color: Colors.yellowAccent,
                                   child: const Text(
-                                    " 25%",
+                                    "-27%",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.black),
@@ -80,11 +81,11 @@ class Footwear_State extends State<Footwear> {
                       ),
                     ),
                     const Text(
-                      "Adidas Red New Arrival",
+                      "Samsung Galaxy S23 Ultra",
                       style: TextStyle(color: Colors.black),
                     ),
                     const Text(
-                      "₹25000",
+                      "₹ 1,09,999",
                       style: TextStyle(
                           fontWeight: FontWeight.bold, color: Colors.black),
                     )
@@ -96,7 +97,7 @@ class Footwear_State extends State<Footwear> {
           InkWell(
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => const Jordan()));
+                  context, MaterialPageRoute(builder: (context) => const S24ultra()));
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 20),
@@ -118,7 +119,7 @@ class Footwear_State extends State<Footwear> {
                       ]),
                       child: Stack(
                         children: [
-                          Image.asset("asset/image/Jordan1.jpeg"),
+                          Image.asset("asset/image/s24ultra.jpg"),
                           Positioned(
                               top: 10,
                               left: 4,
@@ -137,11 +138,11 @@ class Footwear_State extends State<Footwear> {
                       ),
                     ),
                     const Text(
-                      " Mens Air Jordans",
+                      "Samsung Galaxy S24 Ultra",
                       style: TextStyle(color: Colors.black),
                     ),
                     const Text(
-                      "₹30000",
+                      "₹ 1,29,965",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     )
                   ],
@@ -151,7 +152,7 @@ class Footwear_State extends State<Footwear> {
           ),
           InkWell(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>const Adidas()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>const IPH15ProMax()));
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 20),
@@ -173,7 +174,7 @@ class Footwear_State extends State<Footwear> {
                       ]),
                       child: Stack(
                         children: [
-                          Image.asset("asset/image/Adidas-1.jpeg"),
+                          Image.asset("asset/image/iph15promax.jpg"),
                           Positioned(
                               top: 10,
                               left: 4,
@@ -182,7 +183,7 @@ class Footwear_State extends State<Footwear> {
                                 width: 40,
                                 color: Colors.yellowAccent,
                                 child: const Text(
-                                  " 25%",
+                                  " -5%",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black),
@@ -192,11 +193,11 @@ class Footwear_State extends State<Footwear> {
                       ),
                     ),
                     const Text(
-                      "Mens Dunk Sneakers",
+                      "iPhone 15 Pro Max (256GB)",
                       style: TextStyle(color: Colors.black),
                     ),
                     const Text(
-                      "₹10000",
+                      "₹ 1,48,900",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     )
                   ],
@@ -206,7 +207,7 @@ class Footwear_State extends State<Footwear> {
           ),
           InkWell(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>const Adidas()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>const IPH15ProMax()));
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 20),
@@ -228,7 +229,7 @@ class Footwear_State extends State<Footwear> {
                       ]),
                       child: Stack(
                         children: [
-                          Image.asset("asset/image/bully.webp"),
+                          Image.asset("asset/image/15pro.jpg"),
                           Positioned(
                               top: 10,
                               left: 4,
@@ -237,7 +238,7 @@ class Footwear_State extends State<Footwear> {
                                 width: 40,
                                 color: Colors.yellowAccent,
                                 child: const Text(
-                                  " 10%",
+                                  " -5%",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black),
@@ -247,11 +248,11 @@ class Footwear_State extends State<Footwear> {
                       ),
                     ),
                     const Text(
-                      "BULLY SNEAKER 'BALCK/WHITE'",
+                      "iPhone 15 Pro (256GB)",
                       style: TextStyle(color: Colors.black),
                     ),
                     const Text(
-                      "₹29000",
+                      "₹ 1,27,990",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     )
                   ],
@@ -261,7 +262,7 @@ class Footwear_State extends State<Footwear> {
           ),
           InkWell(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>const Jordan()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>const IPH15ProMax()));
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 20),
@@ -283,7 +284,7 @@ class Footwear_State extends State<Footwear> {
                       ]),
                       child: Stack(
                         children: [
-                          Image.asset("asset/image/NikeDunk.png.webp"),
+                          Image.asset("asset/image/15pro.jpg"),
                           Positioned(
                               top: 10,
                               left: 4,
@@ -292,7 +293,7 @@ class Footwear_State extends State<Footwear> {
                                 width: 40,
                                 color: Colors.yellowAccent,
                                 child: const Text(
-                                  " 10%",
+                                  " -5%",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black),
@@ -302,11 +303,11 @@ class Footwear_State extends State<Footwear> {
                       ),
                     ),
                     const Text(
-                      "NIKE SB DUNK LOW THE POWERPUFF GIRLS BUBBLES",
+                      "iPhone 15 Pro (256GB)",
                       style: TextStyle(color: Colors.black),
                     ),
                     const Text(
-                      "₹43,500",
+                      "₹ 1,27,990",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     )
                   ],

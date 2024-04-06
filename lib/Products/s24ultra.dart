@@ -16,6 +16,8 @@ class S24ultra extends StatefulWidget {
 }
 
 class _S24ultraState extends State<S24ultra> {
+  final List<String> _productSizes = ['12GB + 256GB', '12GB + 512GB', '12GB + 1TB'];
+  String _selectedSize='12GB + 256GB';
   var is_selected=false;
   var quan=1;
   var quancontroller=TextEditingController(text: "1");
@@ -58,53 +60,35 @@ class _S24ultraState extends State<S24ultra> {
           ),
           const Text("Size"),
           Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ChoiceChip(
-                    label: const Text("12GB+256GB"),
-                    selected: is_selected,
-                    color: MaterialStateColor.resolveWith(
-                            (states) => Colors.black12),
-                    onSelected: (value) {}),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ChoiceChip(
-                    label: const Text("12GB+512GB"),
-                    selected: is_selected,
-                    color: MaterialStateColor.resolveWith(
-                            (states) => Colors.black12),
-                    onSelected: (value) {}),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ChoiceChip(
-                    label: const Text("12GB+1TB"),
-                    selected: is_selected,
-                    color: MaterialStateColor.resolveWith(
-                            (states) => Colors.black12),
-                    onSelected: (value) {}),
-              ),
-              // Padding(
-              //   padding: const EdgeInsets.all(8.0),
-              //   child: ChoiceChip(
-              //       label: Text("9"),
-              //       selected: is_selected,
-              //       color: MaterialStateColor.resolveWith(
-              //               (states) => Colors.black12),
-              //       onSelected: (value) {}),
-              // ),
-              // Padding(
-              //   padding: const EdgeInsets.all(8.0),
-              //   child: ChoiceChip(
-              //       label: Text("10"),
-              //       selected: is_selected,
-              //       color: MaterialStateColor.resolveWith(
-              //               (states) => Colors.black12),
-              //       onSelected: (value) {}),
-              // ),
-            ],
+            children: _productSizes.map((e) {
+              return GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _selectedSize = e;
+                  });
+                },
+                child: AnimatedContainer(
+                    width: 100,
+                    height: 34,
+                    margin: const EdgeInsets.only(right: 12),
+                    duration: const Duration(seconds: 1),
+                    decoration: BoxDecoration(
+                        color: _selectedSize == e
+                            ? Colors.blue
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Center(
+                        child: Text(
+                          e,
+                          style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w800,
+                              color: _selectedSize == e
+                                  ? Colors.white
+                                  : Colors.black),
+                        ))),
+              );
+            }).toList(),
           ),
           const Text("Color"),
           SingleChildScrollView(

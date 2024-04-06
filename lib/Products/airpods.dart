@@ -8,14 +8,14 @@ import 'package:provider/provider.dart';
 import '../Provider/count_provider.dart';
 
 
-class BoatHeadphones extends StatefulWidget {
-  const BoatHeadphones({super.key});
+class Airpodsmax extends StatefulWidget {
+  const Airpodsmax({super.key});
 
   @override
-  State<BoatHeadphones> createState() => BoatState();
+  State<Airpodsmax> createState() => Airpods_State();
 }
 
-class BoatState extends State<BoatHeadphones> {
+class Airpods_State extends State<Airpodsmax> {
   var is_selected=false;
   var quan=1;
   var quancontroller=TextEditingController(text: "1");
@@ -24,12 +24,14 @@ class BoatState extends State<BoatHeadphones> {
     return Scaffold(
       body: ListView(
         children: [
-          CarouselSlider(
-            items: [
-              Image.asset("asset/image/boatheadphones1.webp"),
-              Image.asset("asset/image/boatheadphones2.webp"),
-            ],
-            options: CarouselOptions(height: 200),
+          Container(
+            child: CarouselSlider(
+              items: [
+                Image.asset("asset/image/airpods_max.jpeg"),
+                Image.asset("asset/image/boatheadphones2.webp"),
+              ],
+              options: CarouselOptions(height: 200),
+            ),
           ),
           const SizedBox(
             height: 20,
@@ -37,11 +39,11 @@ class BoatState extends State<BoatHeadphones> {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 5,bottom: 5),
-            child: Text("Rockerz 650 DC Edition",style: Theme.of(context).textTheme.bodyMedium,),
+            child: Text("Airpods Max",style: Theme.of(context).textTheme.bodyMedium,),
           ),
           const Padding(
             padding: EdgeInsets.only(top: 5,bottom: 5),
-            child: Text("-50% ₹1,999"),
+            child: Text(" ₹59,999"),
           ),
           const Padding(
             padding: EdgeInsets.only(top: 5,bottom: 5),
@@ -51,7 +53,7 @@ class BoatState extends State<BoatHeadphones> {
           const Row(
             children: [Text("Brand :",style:TextStyle(fontWeight: FontWeight.bold) ,),
               SizedBox(width: KSizes.defaultSpace,),
-              Text(("Boat"))],
+              Text(("Apple"))],
           ),
 
           Row(
@@ -96,9 +98,9 @@ class BoatState extends State<BoatHeadphones> {
           const Padding(
             padding: EdgeInsets.only(top: 5,bottom: 5),
             child: ReadMoreText(
-            "  Bluetooth Headphone with 40mm Dynamic Drivers, 60HRS Playback, ASAP™ Charge, Dual EQ Modes"
+              "  Bluetooth Headphone with 40mm Dynamic Drivers, 60HRS Playback, ASAP™ Charge, Dual EQ Modes"
 
-              "Read more at: https://www.boat-lifestyle.com/products/boat-rockerz-650-dc-edition-earbuds"
+                  "Read more at: https://www.boat-lifestyle.com/products/boat-rockerz-650-dc-edition-earbuds"
               ,trimLines: 4,
               trimCollapsedText: "Show more",
               trimExpandedText: "Show less",

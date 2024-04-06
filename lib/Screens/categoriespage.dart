@@ -1,13 +1,13 @@
 import 'package:ecommerceapp/Screens/accesories_store.dart';
-import 'package:ecommerceapp/Screens/perfumespage.dart';
+import 'package:ecommerceapp/Screens/perfumestore.dart';
 import 'package:ecommerceapp/Screens/sneakerstore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'mobilestore.dart';
 
 class Categories extends StatefulWidget {
+  const Categories({super.key});
+
   @override
   State<Categories> createState() => _CategoriesState();
 }
@@ -17,7 +17,7 @@ class _CategoriesState extends State<Categories> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(
+        leading: const BackButton(
           color: Colors.black,
         ),
         title: Text(
@@ -25,7 +25,7 @@ class _CategoriesState extends State<Categories> {
           style: Theme.of(context).textTheme.headlineMedium,
         ),
       ),
-      body: Container(
+      body: SizedBox(
         height: double.infinity,
         width: double.infinity,
         child: GridView.extent(
@@ -36,7 +36,7 @@ class _CategoriesState extends State<Categories> {
             TextButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SneakerStore()));
+                    MaterialPageRoute(builder: (context) => const SneakerStore()));
               },
               child: Expanded(
                 child: Container(
@@ -46,13 +46,13 @@ class _CategoriesState extends State<Categories> {
                   ),
                   child: Column(
                     children: [
-                      Container(
+                      SizedBox(
                           width: 200,
                           height: 150,
                           child: Image.asset(
                             "asset/image/shoe.jpg",
                           )),
-                      Text(
+                      const Text(
                         "Shoes",
                         style: TextStyle(color: Colors.black),
                       )
@@ -74,13 +74,13 @@ class _CategoriesState extends State<Categories> {
                   ),
                   child: Column(
                     children: [
-                      Container(
+                      SizedBox(
                           width: 200,
                           height: 150,
                           child: Image.asset(
                             "asset/image/mobile.jpeg",
                           )),
-                      Text("Mobile")
+                      const Text("Mobile")
                     ],
                   ),
                 ),
@@ -88,7 +88,7 @@ class _CategoriesState extends State<Categories> {
             ),
             TextButton(
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>AccesoriesStore()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const AccesoriesStore()));
               },
               child: Expanded(
                 child: Container(
@@ -98,13 +98,13 @@ class _CategoriesState extends State<Categories> {
                   ),
                   child: Column(
                     children: [
-                      Container(
+                      SizedBox(
                           width: 200,
                           height: 150,
                           child: Image.asset(
                             "asset/image/headphone.jpg",
                           )),
-                      Text("Accesories")
+                      const Text("Accesories")
                     ],
                   ),
                 ),
@@ -112,7 +112,7 @@ class _CategoriesState extends State<Categories> {
             ),
             TextButton(
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>PerfumeStore()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const PerfumeStore()));
               },
               child: Expanded(
                 child: Container(
@@ -122,13 +122,13 @@ class _CategoriesState extends State<Categories> {
                   ),
                   child: Column(
                     children: [
-                      Container(
+                      SizedBox(
                           width: 200,
                           height: 150,
                           child: Image.asset(
                             "asset/image/Perfume.jpg",
                           )),
-                      Text("Perfume")
+                      const Text("Perfume")
                     ],
                   ),
                 ),

@@ -1,10 +1,11 @@
+import 'package:ecommerceapp/Products/airpods.dart';
 import 'package:ecommerceapp/Products/boat_headphones.dart';
-import 'package:ecommerceapp/Products/Jordan.dart';
+import 'package:ecommerceapp/Screens/accesoriespage.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import '../Provider/count_provider.dart';
 import '../constants/sizes.dart';
 import 'cart.dart';
-import 'categoriespage.dart';
 import '../helpers/helper_functions.dart';
 
 class AccesoriesStore extends StatelessWidget {
@@ -13,6 +14,7 @@ class AccesoriesStore extends StatelessWidget {
 // final TabController tabController=TabController(length: 4, vsync: AnimatedListState());
   @override
   Widget build(BuildContext context) {
+    final countprovider = Provider.of<CountProvider>(context);
     final dark = KHelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: AppBar(
@@ -40,7 +42,7 @@ class AccesoriesStore extends StatelessWidget {
                   ),
                   child: Center(
                       child: Text(
-                        "2",
+                        countprovider.quan.toString(),
                         style: Theme.of(context).textTheme.labelLarge,
                       )),
                 ),
@@ -71,36 +73,30 @@ class AccesoriesStore extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             height: 30,
-            child: Stack(
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children:[
-                  const Positioned(
-                    left:5,
-                    child: Text(
-                      "Popular Brands",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
+                  const Text(
+                    "Popular Brands",
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   // Container(
                   //   width: 200,
                   // ),
-                  Positioned(
-                    top: 0,
-                    right: 5,
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Categories()));
-                      },
-                      child: const Text(
-                        "VIEW ALL",
-                        style: TextStyle(color: Colors.blue),
-                      ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => const Accesories()));
+                    },
+                    child: const Text(
+                      "VIEW ALL",
+                      style: TextStyle(color: Colors.blue),
                     ),
                   ),
                 ]
             ),
           ),
-          Divider(color: Colors.white,),
+          const Divider(color: Colors.white,),
           Wrap(
             spacing: 10,
             crossAxisAlignment: WrapCrossAlignment.start,
@@ -226,7 +222,7 @@ class AccesoriesStore extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: KSizes.spaceBtwItems,
+              const SizedBox(height: KSizes.spaceBtwItems,
                 width: double.infinity,),
               SizedBox(
                 height: 600,
@@ -237,7 +233,7 @@ class AccesoriesStore extends StatelessWidget {
                     children: [
                       InkWell(
                         onTap:(){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>BoatHeadphones()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const BoatHeadphones()));
                         },
                         child: Container(height: 100,
                           decoration: BoxDecoration(border: Border.all(color: Colors.black),
@@ -249,18 +245,23 @@ class AccesoriesStore extends StatelessWidget {
                             const Text("₹ 3,999.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
                           ],),),
                       ),
-                      Container(height: 100,
-                        decoration: BoxDecoration(border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(children: [
-                          SizedBox(height:150,child: Image.asset("asset/image/airpods_max.jpeg")),
-                          const Divider(thickness: 2,),
-                          const Text("Airpods Max",style: TextStyle(color: Colors.black),),
-                          const Text("₹ 59,900.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
-                        ],),),
                       InkWell(
                         onTap:(){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Jordan()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const Airpodsmax()));
+                        },
+                        child: Container(height: 100,
+                          decoration: BoxDecoration(border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(children: [
+                            SizedBox(height:150,child: Image.asset("asset/image/airpods_max.jpeg")),
+                            const Divider(thickness: 2,),
+                            const Text("Airpods Max",style: TextStyle(color: Colors.black),),
+                            const Text("₹ 59,900.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
+                          ],),),
+                      ),
+                      InkWell(
+                        onTap:(){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const BoatHeadphones()));
                         },
                         child: Container(height: 100,
                           decoration: BoxDecoration(border: Border.all(color: Colors.black),
@@ -272,15 +273,20 @@ class AccesoriesStore extends StatelessWidget {
                             const Text("₹ 11,999.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
                           ],),),
                       ),
-                      Container(height: 100,
-                        decoration: BoxDecoration(border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(children: [
-                          SizedBox(height:150,child: Image.asset("asset/image/zebronicsheadphones.webp")),
-                          const Divider(thickness: 2,),
-                          const Text("Zebronics Duke",style: TextStyle(color: Colors.black),),
-                          const Text("₹ 2,499.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
-                        ],),),
+                      InkWell(
+                        onTap:(){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const Airpodsmax()));
+                        },
+                        child: Container(height: 100,
+                          decoration: BoxDecoration(border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(children: [
+                            SizedBox(height:150,child: Image.asset("asset/image/zebronicsheadphones.webp")),
+                            const Divider(thickness: 2,),
+                            const Text("Zebronics Duke",style: TextStyle(color: Colors.black),),
+                            const Text("₹ 2,499.00",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),)
+                          ],),),
+                      ),
 
 
                     ]

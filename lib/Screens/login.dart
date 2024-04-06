@@ -17,23 +17,33 @@ async{
     'email':email,
     'password':pass
   });
-  if(response.statusCode==200)
-  {
-    print(jsonDecode(response.body));
+  try {
+    if (response.statusCode == 200) {
+      print(jsonDecode(response.body));
+    }
+    else {
+      print("failed");
+    }
   }
-  else
+  catch(e)
   {
-    print("failed");
+    print(e);
   }
 }
 // ignore: must_be_immutable
-class LoginState extends StatelessWidget {
+class LoginState extends StatefulWidget {
+
+  const LoginState({super.key});
+
+  @override
+  State<LoginState> createState() => _LoginStateState();
+}
+
+class _LoginStateState extends State<LoginState> {
   // const LoginState({super.key});
-
   var mailcontroller = TextEditingController();
-  var passcontroller = TextEditingController();
 
-  LoginState({super.key});
+  var passcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +77,12 @@ class LoginState extends StatelessWidget {
                 child: Column(
               children: [
                 TextFormField(
+                  validator: (value) {
+                    if ( value!.isEmpty || RegExp('[a-z A-Z]+@').hasMatch(value)) {
+                      return 'Please enter mail id';
+                    }
+                    return null;
+                  },
                   decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.account_circle_rounded),
                     labelText: "Email",
@@ -102,7 +118,7 @@ class LoginState extends StatelessWidget {
                     ),
                     TextButton(
                         onPressed: () {
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ForgetPassword()));
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const ForgetPassword()));
                         }, child: const Text("Forgot Password ?")),
                   ],
                 ),
@@ -115,8 +131,8 @@ class LoginState extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                         onPressed: () {
-          postdata(mailcontroller.text.toString(), passcontroller.text.toString());
-                          Navigator.pushReplacement(
+                          postdata(mailcontroller.text.toString(), passcontroller.text.toString());
+                         Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Navigationmenu()));

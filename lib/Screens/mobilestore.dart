@@ -1,18 +1,21 @@
 import 'package:ecommerceapp/Products/15promax.dart';
 import 'package:ecommerceapp/Products/s23ultra.dart';
 import 'package:ecommerceapp/Products/s24ultra.dart';
+import 'package:ecommerceapp/Screens/mobilepage.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import '../Provider/count_provider.dart';
 import 'cart.dart';
-import 'categoriespage.dart';
 import '../helpers/helper_functions.dart';
 
 class MobileStore extends StatelessWidget {
+  const MobileStore({super.key});
+
 // final TabController tabController=TabController(length: 4, vsync: AnimatedListState());
   @override
   Widget build(BuildContext context) {
+    final countprovider = Provider.of<CountProvider>(context);
     final dark = KHelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: AppBar(
@@ -24,9 +27,9 @@ class MobileStore extends StatelessWidget {
               IconButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CartState()));
+                        MaterialPageRoute(builder: (context) => const CartState()));
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.shopping_cart_rounded,
                     color: Colors.black,
                   )),
@@ -41,7 +44,7 @@ class MobileStore extends StatelessWidget {
                   ),
                   child: Center(
                       child: Text(
-                    "2",
+                        countprovider.quan.toString(),
                     style: Theme.of(context).textTheme.labelLarge,
                   )),
                 ),
@@ -59,7 +62,7 @@ class MobileStore extends StatelessWidget {
             child: TextField(
                 decoration: InputDecoration(
               hintText: "Search",
-              prefixIcon: Icon(Icons.search),
+              prefixIcon: const Icon(Icons.search),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
                 // borderSide: BorderSide(),
@@ -67,38 +70,33 @@ class MobileStore extends StatelessWidget {
             )),
           ),
           //Brand Grid
-          Container(
+          SizedBox(
             width: double.infinity,
             height: 30,
-            child: Stack(
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children:[
-                  Positioned(
-                    left:5,
-                    child: Text(
-                      "Popular Brands",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
+                  const Text(
+                    "Popular Brands",
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   // Container(
                   //   width: 200,
                   // ),
-                  Positioned(
-                    right: 5,
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Categories()));
-                      },
-                      child: Text(
-                        "VIEW ALL",
-                        style: TextStyle(color: Colors.blue),
-                      ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => const Mobile()));
+                    },
+                    child: const Text(
+                      "VIEW ALL",
+                      style: TextStyle(color: Colors.blue),
                     ),
                   ),
                 ]
             ),
           ),
-          Divider(color: Colors.white,),
+          const Divider(color: Colors.white,),
           Wrap(
             spacing: 10,
             crossAxisAlignment: WrapCrossAlignment.start,
@@ -114,7 +112,7 @@ class MobileStore extends StatelessWidget {
                     Container(
                       height: 30,
                       width: 60,
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
                           color: dark ? Colors.black : Colors.white,
                           borderRadius: BorderRadius.circular(100)),
@@ -146,7 +144,7 @@ class MobileStore extends StatelessWidget {
                     Container(
                         height: 30,
                         width: 60,
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
                             color: dark ? Colors.black : Colors.white,
                             borderRadius: BorderRadius.circular(100)),
@@ -154,7 +152,7 @@ class MobileStore extends StatelessWidget {
                             child: Image.asset("asset/logo/oneplus_logo.png"))),
                     Column(
                       children: [
-                        Text("Oneplus",
+                        const Text("Oneplus",
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         Text(
                           "50 Products",
@@ -176,7 +174,7 @@ class MobileStore extends StatelessWidget {
                     Container(
                         height: 30,
                         width: 60,
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
                             color: dark ? Colors.black : Colors.white,
                             borderRadius: BorderRadius.circular(100)),
@@ -185,7 +183,7 @@ class MobileStore extends StatelessWidget {
                                 "asset/logo/samsung_logo.jpg.webp"))),
                     Column(
                       children: [
-                        Text("Samsung",
+                        const Text("Samsung",
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         Text(
                           "100 Products",
@@ -207,7 +205,7 @@ class MobileStore extends StatelessWidget {
                     Container(
                         height: 30,
                         width: 60,
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
                             color: dark ? Colors.black : Colors.white,
                             borderRadius: BorderRadius.circular(100)),
@@ -215,7 +213,7 @@ class MobileStore extends StatelessWidget {
                             child: Image.asset("asset/logo/oppo_logo.png"))),
                     Column(
                       children: [
-                        Text("Oppo",
+                        const Text("Oppo",
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         Text(
                           "150 Products",
@@ -226,7 +224,7 @@ class MobileStore extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: KSizes.spaceBtwItems,
+              const SizedBox(height: KSizes.spaceBtwItems,
                 width: double.infinity,),
               SizedBox(
                 height: 600,
@@ -252,7 +250,7 @@ class MobileStore extends StatelessWidget {
                       InkWell(
                         onTap:()
                         {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>IPH15ProMax()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const IPH15ProMax()));
                         },
                         child: Container(
                           height: 100,
@@ -266,11 +264,11 @@ class MobileStore extends StatelessWidget {
                                   child:
                                       Image.asset("asset/image/iph15promax.jpg")),
                               const Divider(thickness: 2,),
-                              Text(
+                              const Text(
                                 "iPhone 15 Pro Max",
                                 style: TextStyle(color: Colors.black),
                               ),
-                              Text(
+                              const Text(
                                 "₹ 1,48,900",
                                 style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
                               )
@@ -280,7 +278,7 @@ class MobileStore extends StatelessWidget {
                       ),
                       TextButton(
                        onPressed: (){
-                         Navigator.push(context, MaterialPageRoute(builder: (context)=>S24ultra()));
+                         Navigator.push(context, MaterialPageRoute(builder: (context)=>const S24ultra()));
                        },
                         child: Container(
                           // height: 400,
@@ -294,11 +292,11 @@ class MobileStore extends StatelessWidget {
                                   height: 120,
                                   child: Image.asset("asset/image/s24ultra.jpg")),
                               const Divider(thickness: 2,),
-                              Text(
+                              const Text(
                                 "Samsung Galaxy S24 Ultra",
                                 style: TextStyle(color: Colors.black),
                               ),
-                              Text(
+                              const Text(
                                 "₹ 1,29,965",
                                 style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 9),
                               )
@@ -307,7 +305,7 @@ class MobileStore extends StatelessWidget {
                         ),
                       ),
                       InkWell(
-                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>IPH15ProMax()));},
+                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>const IPH15ProMax()));},
                         child: Container(
                           // height: 100,
                           decoration: BoxDecoration(
@@ -323,16 +321,16 @@ class MobileStore extends StatelessWidget {
                                           Image.asset("asset/image/15pro.jpg")),
                                   Container(
                                     color: Colors.yellowAccent,
-                                    child: Text("-5%"),
+                                    child: const Text("-5%"),
                                   )
                                 ],
                               ),
                               const Divider(thickness: 2,),
-                              Text(
+                              const Text(
                                 "iPhone 15 Pro (256GB)",
                                 style: TextStyle(color: Colors.black),
                               ),
-                              Text(
+                              const Text(
                                 "₹ 1,27,990",
                                 style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),
                               )
@@ -342,7 +340,7 @@ class MobileStore extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>S23ultra()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const S23ultra()));
                         },
                         child: Container(
                           height: 300,
@@ -361,15 +359,15 @@ class MobileStore extends StatelessWidget {
                                     top: 0,
                                     child: Container(
                                       color: Colors.yellow,
-                                      child: Text("-27%"),
+                                      child: const Text("-27%"),
                                     ))
                               ]),
                               const Divider(thickness: 2,),
-                              Text(
+                              const Text(
                                 "Samsung Galaxy S23 Ultra",
                                 style: TextStyle(color: Colors.black),
                               ),
-                              Text(
+                              const Text(
                                 "₹ 1,09,999",
                                 style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 9),
                               )

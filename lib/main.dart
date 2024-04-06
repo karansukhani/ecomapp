@@ -10,7 +10,7 @@ import 'package:ecommerceapp/Screens/login.dart';
 import 'package:ecommerceapp/Screens/mobilestore.dart';
 import 'package:provider/provider.dart';
 // import 'package:ecommerceapp/navigation_bar.dart';
-import 'package:ecommerceapp/Screens/perfumespage.dart';
+import 'package:ecommerceapp/Screens/perfumestore.dart';
 // import 'package:ecommerceapp/profile.dart';
 // import 'package:ecommerceapp/sneakerspage.dart';
 import 'package:ecommerceapp/Screens/sneakerstore.dart';
@@ -34,20 +34,21 @@ class MyApp extends StatelessWidget {
     //If we want to use Multiprovider then we have to use multiprovider in place of Changenotificationprovider
     //And Provider array in which we give multiple ChangeNotifierProvide and create Provider
     return ChangeNotifierProvider(
-      create: (_)=>CountProvider(),
+      create: (_) => CountProvider(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Satguru Creations',
         theme: ThemeData(
           textTheme: const TextTheme(
               displayLarge: TextStyle(
-                  fontWeight: FontWeight.bold, color: Colors.blue, fontSize: 20)),
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue,
+                  fontSize: 20)),
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
         ),
-        home: LoginState(),
+        home: const LoginState(),
       ),
-
     );
   }
 }
@@ -62,6 +63,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    final countprovider = Provider.of<CountProvider>(context);
     final controller = Get.put(HomeController());
     final dark = KHelperFunctions.isDarkMode(context);
     return Scaffold(
@@ -91,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
               IconButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CartState()));
+                        MaterialPageRoute(builder: (context) => const CartState()));
                   },
                   icon: const Icon(
                     Icons.shopping_cart_rounded,
@@ -108,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   child: Center(
                       child: Text(
-                    "2",
+                    countprovider.quan.toString(),
                     style: Theme.of(context).textTheme.labelLarge,
                   )),
                 ),
@@ -181,18 +183,19 @@ class _MyHomePageState extends State<MyHomePage> {
             )),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
                 "Popular Categories",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              Container(
-                width: 200,
-              ),
+              // Container(
+              //   width: 200,
+              // ),
               TextButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Categories()));
+                      MaterialPageRoute(builder: (context) => const Categories()));
                 },
                 child: const Text(
                   "VIEW ALL",
@@ -212,7 +215,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SneakerStore()));
+                                builder: (context) => const SneakerStore()));
                       },
                       child: Column(
                         children: [
@@ -239,7 +242,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => MobileStore()));
+                                builder: (context) => const MobileStore()));
                       },
                       child: Column(
                         children: [
@@ -263,8 +266,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextButton(
-                      onPressed: (){
-                       Navigator.push(context, MaterialPageRoute(builder: (context)=>const AccesoriesStore()));
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AccesoriesStore()));
                       },
                       child: Column(
                         children: [
@@ -367,19 +373,17 @@ class _MyHomePageState extends State<MyHomePage> {
             ]),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
                 "New Arrivals",
                 style:
                     TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
-              Container(
-                width: 220,
-              ),
               TextButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SneakerStore()));
+                      MaterialPageRoute(builder: (context) => const SneakerStore()));
                 },
                 child: const Text(
                   "VIEW ALL",
@@ -390,8 +394,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => const Adidas()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Adidas()));
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 20),
@@ -459,7 +463,7 @@ class _MyHomePageState extends State<MyHomePage> {
           InkWell(
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Jordan()));
+                  context, MaterialPageRoute(builder: (context) => const Jordan()));
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 20),
@@ -514,8 +518,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => const Adidas()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Adidas()));
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 20),

@@ -5,6 +5,8 @@ import 'constants/add_addressformat.dart';
 
 class Checkout extends StatelessWidget
 {
+  const Checkout({super.key});
+
   @override
   Widget build(BuildContext context) {
    return Scaffold(

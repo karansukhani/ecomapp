@@ -1,12 +1,15 @@
 // import 'dart:js_interop_unsafe';
+import 'dart:convert';
+
 import 'package:ecommerceapp/Provider/count_provider.dart';
 import 'package:ecommerceapp/Screens/cart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:readmore/readmore.dart';
 // ignore: depend_on_referenced_packages
 import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
+
 
 
 class Adidas extends StatefulWidget {
@@ -16,9 +19,32 @@ class Adidas extends StatefulWidget {
   State<Adidas> createState() => _AdidasState();
 }
 
+Map? mapresponse;
+
 class _AdidasState extends State<Adidas> {
+  postdata(String productid,String quan,String size,String productprice,String Pname)
+  async{
+    final uri = Uri.parse("https://e-com.iappsolution.tech/api/user/addToCart");
+    http.Response response=await http.post(uri,body:{
+      'product_id':productid,
+      'quantity': quan,
+      'size':size,
+      'productTotalPrice': productprice,
+      'productname':Pname
+
+    });
+    if(response.statusCode==202)
+    {
+      print(jsonDecode(response.body));
+    }
+    else
+    {
+      print("failed");
+    }
+  }
   final List<String> _productSizes = ['6', '7', '8', '9','10'];
   String _selectedSize='6';
+
 // ignore: non_constant_identifier_names
 var is_selected=false;
 List<int> selected=[];
@@ -26,19 +52,18 @@ List<int> selected=[];
 var quancontroller=TextEditingController(text: "1");
   @override
   Widget build(BuildContext context) {
+    final quanprovider=Provider.of<CountProvider>(context);
     return Scaffold(
       body: ListView(
         children: [
-          Container(
-            child: CarouselSlider(
-              items: [
-                Image.asset("asset/image/Adidas-1.jpeg"),
-                Image.asset("asset/image/Adidas-2.jpeg"),
-                Image.asset("asset/image/Adidas-3.jpeg"),
-                Image.asset("asset/image/Adidas-4.jpeg"),
-              ],
-              options: CarouselOptions(height: 200),
-            ),
+          CarouselSlider(
+            items: [
+              Image.asset("asset/image/Adidas-1.jpeg"),
+              Image.asset("asset/image/Adidas-2.jpeg"),
+              Image.asset("asset/image/Adidas-3.jpeg"),
+              Image.asset("asset/image/Adidas-4.jpeg"),
+            ],
+            options: CarouselOptions(height: 200),
           ),
           const SizedBox(
             height: 20,
@@ -64,74 +89,6 @@ var quancontroller=TextEditingController(text: "1");
             child: Text("Stock : InStock"),
           ),
           const Text("Size"),
-          // Row(
-          //   children: [
-          //     Padding(
-          //       padding: const EdgeInsets.all(8.0),
-          //       child: ChoiceChip(
-          //           label: const Text("6"),
-          //           selected:  selected.contains(6)?true:false,
-          //           color: MaterialStateColor.resolveWith(
-          //               (states) => Colors.black12),
-          //           onSelected: (value) {
-          //             selected.add(6);
-          //             setState(() {
-          //
-          //             });
-          //           },
-          //           elevation: 10,),
-          //     ),
-          //     Padding(
-          //       padding: const EdgeInsets.all(8.0),
-          //       child: ChoiceChip(
-          //           label: const Text("7"),
-          //           selected: selected.contains(7)?true:false,
-          //           color: MaterialStateColor.resolveWith(
-          //               (states) => Colors.black12),
-          //           onSelected: (value) {
-          //             selected.add(7);
-          //             setState(() {
-          //
-          //             });
-          //           }),
-          //     ),
-          //     Padding(
-          //       padding: const EdgeInsets.all(8.0),
-          //       child: ChoiceChip(
-          //           label: const Text("8"),
-          //           selected: selected.contains(8)?true:false,
-          //           color: MaterialStateColor.resolveWith(
-          //               (states) => Colors.black12),
-          //           onSelected: (value) {
-          //             selected.add(8);
-          //             setState(() {
-          //
-          //             });
-          //           }),
-          //     ),
-          //     Padding(
-          //       padding: const EdgeInsets.all(8.0),
-          //       child: ChoiceChip(
-          //           label: const Text("9"),
-          //           selected: selected.contains(9)?true:false,
-          //           color: MaterialStateColor.resolveWith(
-          //               (states) => Colors.black12),
-          //           onSelected:(value){
-          //             selected.add(9);
-          //           }),
-          //     ),
-          //     Padding(
-          //       padding: const EdgeInsets.all(8.0),
-          //       child: ChoiceChip(
-          //           label: const Text("10"),
-          //           selected: is_selected,
-          //           color: MaterialStateColor.resolveWith(
-          //               (states) => Colors.black12),
-          //           onSelected: (value) {}),
-          //     ),
-          //   ],
-          // ),
-  // Quantity Select
           Row(
             children: _productSizes.map((e) {
               return GestureDetector(
@@ -194,6 +151,8 @@ var quancontroller=TextEditingController(text: "1");
               onPressed: () {
                 setState(() {
                   Navigator.push(context, MaterialPageRoute(builder:(context) =>  CartState()));
+                  postdata('1', quanprovider.quan.toString(), _selectedSize, '14,999.00','Adidas Originals');
+
                 });
               },
               style: ButtonStyle(

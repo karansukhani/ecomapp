@@ -1,9 +1,7 @@
 import 'package:ecommerceapp/Screens/cart.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/services.dart';
 import 'package:readmore/readmore.dart';
 import 'package:provider/provider.dart';
 
@@ -11,11 +9,15 @@ import '../Provider/count_provider.dart';
 
 
 class IPH15ProMax extends StatefulWidget {
+  const IPH15ProMax({super.key});
+
   @override
   State<IPH15ProMax> createState() => _IPH15ProMaxState();
 }
 
 class _IPH15ProMaxState extends State<IPH15ProMax> {
+  final List<String> _productSizes = ['12GB + 256GB', '12GB + 512GB', '12GB + 1TB'];
+  String _selectedSize='12GB + 256GB';
   var is_selected=false;
   var quan=1;
   var quancontroller=TextEditingController(text: "1");
@@ -24,18 +26,16 @@ class _IPH15ProMaxState extends State<IPH15ProMax> {
     return Scaffold(
       body: ListView(
         children: [
-          Container(
-            child: CarouselSlider(
-              items: [
-                Image.asset("asset/image/iph15promax.jpg"),
-                Image.asset("asset/image/iph15promax2.jpg"),
-                Image.asset("asset/image/iph15promax3.jpg"),
-                Image.asset("asset/image/iph15promax4.jpg"),
-              ],
-              options: CarouselOptions(height: 200),
-            ),
+          CarouselSlider(
+            items: [
+              Image.asset("asset/image/iph15promax.jpg"),
+              Image.asset("asset/image/iph15promax2.jpg"),
+              Image.asset("asset/image/iph15promax3.jpg"),
+              Image.asset("asset/image/iph15promax4.jpg"),
+            ],
+            options: CarouselOptions(height: 200),
           ),
-          Container(
+          const SizedBox(
             height: 20,
             width: double.infinity,
           ),
@@ -43,13 +43,6 @@ class _IPH15ProMaxState extends State<IPH15ProMax> {
             padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text("Apple iPhone 15 Pro Max (256 GB) - Blue Titanium",),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.only(top: 5,bottom: 5),
-          //   child: Text(
-          //     "TRAE YOUNG 3 'OFF WHITE/RED/CORE BLACK'",
-          //     style: TextStyle(fontWeight: FontWeight.bold),
-          //   ),
-          // ),
           const Padding(
             padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text("-7% ₹1,48,900"),
@@ -60,54 +53,37 @@ class _IPH15ProMaxState extends State<IPH15ProMax> {
           ),
           const Text("Size"),
           Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ChoiceChip(
-                    label: const Text("12GB+256GB"),
-                    selected: is_selected,
-                    color: MaterialStateColor.resolveWith(
-                            (states) => Colors.black12),
-                    onSelected: (value) {}),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ChoiceChip(
-                    label: const Text("12GB+512GB"),
-                    selected: is_selected,
-                    color: MaterialStateColor.resolveWith(
-                            (states) => Colors.black12),
-                    onSelected: (value) {}),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ChoiceChip(
-                    label: const Text("12GB+1TB"),
-                    selected: is_selected,
-                    color: MaterialStateColor.resolveWith(
-                            (states) => Colors.black12),
-                    onSelected: (value) {}),
-              ),
-              // Padding(
-              //   padding: const EdgeInsets.all(8.0),
-              //   child: ChoiceChip(
-              //       label: Text("9"),
-              //       selected: is_selected,
-              //       color: MaterialStateColor.resolveWith(
-              //               (states) => Colors.black12),
-              //       onSelected: (value) {}),
-              // ),
-              // Padding(
-              //   padding: const EdgeInsets.all(8.0),
-              //   child: ChoiceChip(
-              //       label: Text("10"),
-              //       selected: is_selected,
-              //       color: MaterialStateColor.resolveWith(
-              //               (states) => Colors.black12),
-              //       onSelected: (value) {}),
-              // ),
-            ],
+            children: _productSizes.map((e) {
+              return GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _selectedSize = e;
+                  });
+                },
+                child: AnimatedContainer(
+                    width: 100,
+                    height: 34,
+                    margin: const EdgeInsets.only(right: 12),
+                    duration: const Duration(seconds: 1),
+                    decoration: BoxDecoration(
+                        color: _selectedSize == e
+                            ? Colors.blue
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Center(
+                        child: Text(
+                          e,
+                          style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w800,
+                              color: _selectedSize == e
+                                  ? Colors.white
+                                  : Colors.black),
+                        ))),
+              );
+            }).toList(),
           ),
+
           const Text("Color"),
           Row(
             children: [
@@ -212,12 +188,12 @@ class _IPH15ProMaxState extends State<IPH15ProMax> {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder:(context) =>CartState()));
               },
-              child: const Center(
-                child: Text("Add to Cart",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-              ),
               style: ButtonStyle(
                   backgroundColor:
                   MaterialStateColor.resolveWith((states) => Colors.blue)),
+              child: const Center(
+                child: Text("Add to Cart",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+              ),
             ),
           ),
           const Padding(

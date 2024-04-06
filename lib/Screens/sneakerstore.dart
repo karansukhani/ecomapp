@@ -1,10 +1,11 @@
 import 'package:ecommerceapp/Products/Adidas.dart';
 import 'package:ecommerceapp/Products/Jordan.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
+import 'package:ecommerceapp/sneakerspage.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import '../Provider/count_provider.dart';
 import 'cart.dart';
-import 'categoriespage.dart';
 import '../helpers/helper_functions.dart';
 
 class SneakerStore extends StatelessWidget {
@@ -13,6 +14,7 @@ class SneakerStore extends StatelessWidget {
 // final TabController tabController=TabController(length: 4, vsync: AnimatedListState());
   @override
   Widget build(BuildContext context) {
+    final countprovider = Provider.of<CountProvider>(context);
     final dark = KHelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: AppBar(
@@ -23,7 +25,7 @@ class SneakerStore extends StatelessWidget {
               IconButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CartState()));
+                        MaterialPageRoute(builder: (context) => const CartState()));
                   },
                   icon: const Icon(
                     Icons.shopping_cart_rounded,
@@ -40,7 +42,7 @@ class SneakerStore extends StatelessWidget {
                   ),
                   child: Center(
                       child: Text(
-                    "2",
+                        countprovider.quan.toString(),
                     style: Theme.of(context).textTheme.labelLarge,
                   )),
                 ),
@@ -71,160 +73,161 @@ class SneakerStore extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               height: 30,
-              child: Stack(
-                children:[
-                  const Positioned(
-                    left:5,
-                    child: Text(
-                    "Popular Brands",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                                    ),
-                  ),
-                // Container(
-                //   width: 200,
-                // ),
-                Positioned(
-                  right: 5,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Categories()));
-                    },
-                    child: const Text(
-                      "VIEW ALL",
-                      style: TextStyle(color: Colors.blue),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children:[
+                    const Text(
+                      "Popular Brands",
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                  ),
-                ),
-      ]
+                    // Container(
+                    //   width: 200,
+                    // ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => const Footwear()));
+                      },
+                      child: const Text(
+                        "VIEW ALL",
+                        style: TextStyle(color: Colors.blue),
+                      ),
+                    ),
+                  ]
               ),
             ),
             const Divider(color: Colors.white,),
             // Popular Brands and products
-            Wrap(
-              spacing: 10,
-              crossAxisAlignment: WrapCrossAlignment.start,
+            Column(
               children: [
-                Container(
-                  height: 50,
-                  width: 200,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 30,
-                        width: 60,
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            color: dark ? Colors.black : Colors.white,
-                            borderRadius: BorderRadius.circular(100)),
-                        child: Center(
-                          child: Image.asset("asset/logo/nike-logo.jpg"),
-                        ),
+                Row(
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 200,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 30,
+                            width: 60,
+                            padding: const EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                                color: dark ? Colors.black : Colors.white,
+                                borderRadius: BorderRadius.circular(100)),
+                            child: Center(
+                              child: Image.asset("asset/logo/nike-logo.jpg"),
+                            ),
+                          ),
+                          const Column(
+                            children: [
+                              Text("Nike",
+                                  style: TextStyle(fontWeight: FontWeight.bold)),
+                              Text(
+                                "300 Products",
+                                style: TextStyle(fontSize: 10),
+                              )
+                            ],
+                          )
+                        ],
                       ),
-                      const Column(
+                    ),
+                    Container(
+                      height: 50,
+                      width: 200,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Row(
                         children: [
-                          Text("Nike",
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          Text(
-                            "300 Products",
-                            style: TextStyle(fontSize: 10),
+                          Container(
+                              height: 30,
+                              width: 60,
+                              padding: const EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                  color: dark ? Colors.black : Colors.white,
+                                  borderRadius: BorderRadius.circular(100)),
+                              child: Center(child: Image.asset("asset/logo/puma.png"))),
+                          Column(
+                            children: [
+                              const Text("Puma",
+                                  style: TextStyle(fontWeight: FontWeight.bold)),
+                              Text(
+                                "200 Products",
+                                style: Theme.of(context).textTheme.bodySmall,
+                              )
+                            ],
                           )
                         ],
-                      )
-                    ],
-                  ),
+                      ),
+                    ),
+                  ],
                 ),
-                Container(
-                  height: 50,
-                  width: 200,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Row(
-                    children: [
-                      Container(
-                          height: 30,
-                          width: 60,
-                          padding: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                              color: dark ? Colors.black : Colors.white,
-                              borderRadius: BorderRadius.circular(100)),
-                          child: Center(child: Image.asset("asset/logo/puma.png"))),
-                      Column(
+                Row(
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 200,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Row(
                         children: [
-                          const Text("Puma",
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          Text(
-                            "200 Products",
-                            style: Theme.of(context).textTheme.bodySmall,
+                          Container(
+                              height: 30,
+                              width: 60,
+                              padding: const EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                  color: dark ? Colors.black : Colors.white,
+                                  borderRadius: BorderRadius.circular(100)),
+                              child: Center(
+                                  child: Image.asset("asset/logo/adidaslogo.png"))),
+                          Column(
+                            children: [
+                              const Text("Adidas",
+                                  style: TextStyle(fontWeight: FontWeight.bold)),
+                              Text(
+                                "200 Products",
+                                style: Theme.of(context).textTheme.bodySmall,
+                              )
+                            ],
                           )
                         ],
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 50,
-                  width: 200,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Row(
-                    children: [
-                      Container(
-                          height: 30,
-                          width: 60,
-                          padding: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                              color: dark ? Colors.black : Colors.white,
-                              borderRadius: BorderRadius.circular(100)),
-                          child: Center(
-                              child: Image.asset("asset/logo/adidaslogo.png"))),
-                      Column(
+                      ),
+                    ),
+                    Container(
+                      height: 50,
+                      width: 200,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Row(
                         children: [
-                          const Text("Adidas",
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          Text(
-                            "200 Products",
-                            style: Theme.of(context).textTheme.bodySmall,
+                          Container(
+                              height: 30,
+                              width: 60,
+                              padding: const EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                  color: dark ? Colors.black : Colors.white,
+                                  borderRadius: BorderRadius.circular(100)),
+                              child:
+                              Center(child: Image.asset("asset/logo/campus.png"))),
+                          Column(
+                            children: [
+                              const Text("Campus",
+                                  style: TextStyle(fontWeight: FontWeight.bold)),
+                              Text(
+                                "150 Products",
+                                style: Theme.of(context).textTheme.bodySmall,
+                              )
+                            ],
                           )
                         ],
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 50,
-                  width: 200,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Row(
-                    children: [
-                      Container(
-                          height: 30,
-                          width: 60,
-                          padding: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                              color: dark ? Colors.black : Colors.white,
-                              borderRadius: BorderRadius.circular(100)),
-                          child:
-                          Center(child: Image.asset("asset/logo/campus.png"))),
-                      Column(
-                        children: [
-                          const Text("Campus",
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          Text(
-                            "150 Products",
-                            style: Theme.of(context).textTheme.bodySmall,
-                          )
-                        ],
-                      )
-                    ],
-                  ),
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: KSizes.spaceBtwItems,
                 width: double.infinity,),
@@ -279,7 +282,7 @@ class SneakerStore extends StatelessWidget {
                       ),
                       InkWell(
                         onTap:(){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Jordan()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const Jordan()));
                         },
                         child: Container(height: 100,
                           decoration: BoxDecoration(border: Border.all(color: Colors.black),
@@ -293,7 +296,7 @@ class SneakerStore extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Jordan()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const Jordan()));
                         },
                         child: Container(height: 100,
                           decoration: BoxDecoration(border: Border.all(color: Colors.black),

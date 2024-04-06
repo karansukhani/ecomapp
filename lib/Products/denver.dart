@@ -42,24 +42,17 @@ class _DenverState extends State<Denver> {
           ),
           const Padding(
             padding: EdgeInsets.only(top: 5,bottom: 5),
-            child: Text("DENVER Imperial Deodorant - 165ML | Long Lasting Deo Body Spray for Men",),
+            child: Text("DENVER Imperial Deodorant - 165ML | Long Lasting Deo Body Spray for Men", style: TextStyle(fontWeight: FontWeight.bold)),
           ),
           const Padding(
             padding: EdgeInsets.only(top: 5,bottom: 5),
-            child: Text(
-              "TRAE YOUNG 3 'OFF WHITE/RED/CORE BLACK'",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(top: 5,bottom: 5),
-            child: Text("₹ 14,999.00"),
+            child: Text("₹ 320.00"),
           ),
           const Padding(
             padding: EdgeInsets.only(top: 5,bottom: 5),
             child: Text("Stock : InStock"),
           ),
-          const Text("Size"),
+          // const Text("Size"),
           // Row(
           //   children: [
           //     Padding(

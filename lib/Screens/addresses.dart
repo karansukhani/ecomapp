@@ -4,11 +4,12 @@ import 'package:ecommerceapp/Screens/add_new_address.dart';
 import 'package:ecommerceapp/constants/singleaddress.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
 import 'package:ecommerceapp/helpers/helper_functions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Addresses extends StatelessWidget
 {
+  const Addresses({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +17,10 @@ class Addresses extends StatelessWidget
    return Scaffold(
      floatingActionButton: FloatingActionButton(
        onPressed: (){
-       Navigator.push(context, MaterialPageRoute(builder: (context)=>Addnewaddress()));
+       Navigator.push(context, MaterialPageRoute(builder: (context)=>const Addnewaddress()));
     },
        backgroundColor: Colors.blue,
-       child: Icon(Icons.add),
+       child: const Icon(Icons.add),
 
      ),
      appBar: AppBar(
@@ -31,7 +32,7 @@ class Addresses extends StatelessWidget
        ),
      ),
      body: SingleChildScrollView(
-       child: Padding(padding: EdgeInsets.all(KSizes.sm),
+       child: Padding(padding: const EdgeInsets.all(KSizes.sm),
          child: Column(
            children: [
           KAddresses(true, "82356 Timmy Coves, South Liana, Maine, 87665,USA"),

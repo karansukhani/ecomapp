@@ -5,10 +5,11 @@ import 'package:ecommerceapp/constants/list_tile_title.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
 import 'package:ecommerceapp/helpers/helper_functions.dart';
 import 'package:ecommerceapp/Screens/profile.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Account extends StatelessWidget {
+  const Account({super.key});
+
   @override
   Widget build(BuildContext context) {
     final dark = KHelperFunctions.isDarkMode(context);
@@ -19,7 +20,7 @@ class Account extends StatelessWidget {
           children: [
             Container(
               color: Colors.blue,
-              padding: EdgeInsets.all(0),
+              padding: const EdgeInsets.all(0),
               child: AppBar(
                 backgroundColor: Colors.blue,
                 title: Text("Account Settings",
@@ -31,10 +32,10 @@ class Account extends StatelessWidget {
             ),
             Container(
               color: Colors.blue,
-              padding: EdgeInsets.all(0),
+              padding: const EdgeInsets.all(0),
               height: 100,
               child: ListTile(
-                leading: CircleAvatar(
+                leading: const CircleAvatar(
                   backgroundImage: AssetImage("asset/logo/applelogo.png"),
                 ),
                 title: Text(
@@ -52,16 +53,16 @@ class Account extends StatelessWidget {
                       .apply(color: dark ? Colors.white : Colors.black),
                 ),
                 trailing: IconButton(
-                  icon: Icon(Icons.edit),
+                  icon: const Icon(Icons.edit),
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Profilepage()));
+                        MaterialPageRoute(builder: (context) => const Profilepage()));
                   },
                 ),
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
                   Text(
@@ -71,13 +72,16 @@ class Account extends StatelessWidget {
                         .headlineMedium!
                         .apply(color: dark ? Colors.white : Colors.black),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: KSizes.spaceBtwItems,
                   ),
                   Container(
                     width: double.infinity,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(13)),
                     child: InkWell(
-                      child: Ksettingsmenutile(
+                      child: const Ksettingsmenutile(
                         icon: Icons.home,
                         title: "My Addresses",
                         subtitle: "Set Shopping Delivery Address",
@@ -86,14 +90,11 @@ class Account extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Addresses()));
+                                builder: (context) => const Addresses()));
                       },
                     ),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(13)),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: KSizes.spaceBtwItems,
                   ),
                   Container(
@@ -101,7 +102,7 @@ class Account extends StatelessWidget {
                         border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(13)),
                     child: InkWell(
-                      child: Ksettingsmenutile(
+                      child: const Ksettingsmenutile(
                         icon: Icons.shopping_cart_outlined,
                         title: "My Cart",
                         subtitle: "Add or Remove Products from your cart",
@@ -110,11 +111,11 @@ class Account extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => CartState()));
+                                builder: (context) => const CartState()));
                       },
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: KSizes.spaceBtwItems,
                   ),
                   Container(
@@ -122,25 +123,25 @@ class Account extends StatelessWidget {
                         border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(13)),
                     child: InkWell(
-                      child: Ksettingsmenutile(
+                      child: const Ksettingsmenutile(
                         icon: Icons.card_travel,
                         title: "My Orders",
                         subtitle: "In-Progress and Completed Orders",
                       ),
                       onTap: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Orders()));
+                            MaterialPageRoute(builder: (context) => const Orders()));
                       },
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: KSizes.spaceBtwItems,
                   ),
                   Container(
                       decoration: BoxDecoration(
                           border: Border.all(color: Colors.black),
                           borderRadius: BorderRadius.circular(13)),
-                      child: Ksettingsmenutile(
+                      child: const Ksettingsmenutile(
                         icon: Icons.security,
                         title: "Account Privacy",
                         subtitle: "Manage Data usage and connections",

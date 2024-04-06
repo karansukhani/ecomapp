@@ -36,6 +36,8 @@ class Signup extends StatelessWidget
   final email=TextEditingController();
   final phone=TextEditingController();
   final pass=TextEditingController();
+
+  Signup({super.key});
   @override
   Widget build(BuildContext context) {
     final dark = KHelperFunctions.isDarkMode(context);
@@ -43,57 +45,57 @@ class Signup extends StatelessWidget
      appBar: AppBar(),
      body: SingleChildScrollView(
        child: Padding(
-         padding: EdgeInsets.all(8),
+         padding: const EdgeInsets.all(8),
          child: Column(
            children: [
              Text(KTexts.signupTitle,style: Theme.of(context).textTheme.headlineMedium,),
 
              //Form
-             SizedBox(height: 32,),
+             const SizedBox(height: 32,),
              Form(child: Column(
                children: [
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: KTexts.firstName,
                       prefixIcon: Icon(Icons.account_circle),
                     ),
                     controller: fname,
                   ),
-                 SizedBox(width: KSizes.spaceBtwInputFields,),
+                 const SizedBox(width: KSizes.spaceBtwInputFields,),
                  TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: KTexts.lastName,
                       prefixIcon: Icon(Icons.account_circle),
                     ),
                    controller: lname,
                   ),
-                 SizedBox(height: KSizes.spaceBtwItems,),
+                 const SizedBox(height: KSizes.spaceBtwItems,),
                  TextFormField(
-                   decoration: InputDecoration(
+                   decoration: const InputDecoration(
                      labelText: KTexts.username,
                      prefixIcon: Icon(Icons.account_box_rounded),
                    ),
                  ),
-                 SizedBox(height: KSizes.spaceBtwItems,),
+                 const SizedBox(height: KSizes.spaceBtwItems,),
                  TextFormField(
-                   decoration: InputDecoration(
+                   decoration: const InputDecoration(
                      labelText: KTexts.email,
                      prefixIcon: Icon(Icons.mail),
                    ),
                    controller: email,
                  ),
-                 SizedBox(height: KSizes.spaceBtwItems,),
+                 const SizedBox(height: KSizes.spaceBtwItems,),
                  TextFormField(
                    keyboardType: TextInputType.number,
-                   decoration: InputDecoration(
+                   decoration: const InputDecoration(
                      labelText: KTexts.phoneNo,
                      prefixIcon: Icon(Icons.mail),
                    ),
                    controller: phone,
                  ),
-                 SizedBox(height: KSizes.spaceBtwItems,),
+                 const SizedBox(height: KSizes.spaceBtwItems,),
                  TextFormField(
-                   decoration: InputDecoration(
+                   decoration: const InputDecoration(
                      labelText: KTexts.password,
                      prefixIcon: Icon(Icons.password),
                      suffixIcon: Icon(Icons.remove_red_eye),
@@ -105,14 +107,14 @@ class Signup extends StatelessWidget
                      SizedBox(height:24,width:24,child: Checkbox(value: true, onChanged: (value){})),
                      RichText(text: TextSpan(
                        children: [
-                         TextSpan(text: '${KTexts.iAgreeTo}',style: Theme.of(context).textTheme.bodySmall),
-                         TextSpan(text: '${KTexts.privacyPolicy}',style: Theme.of(context).textTheme.bodySmall!.apply(
+                         TextSpan(text: KTexts.iAgreeTo,style: Theme.of(context).textTheme.bodySmall),
+                         TextSpan(text: KTexts.privacyPolicy,style: Theme.of(context).textTheme.bodySmall!.apply(
                            color: dark?Colors.white:Colors.black,
                            decoration: TextDecoration.underline,
                            decorationColor: dark?Colors.white:Colors.black,
                          )),
                          TextSpan(text: KTexts.and,style: Theme.of(context).textTheme.bodySmall),
-                         TextSpan(text: '${KTexts.termsOfUse}',style: Theme.of(context).textTheme.bodySmall!.apply(
+                         TextSpan(text: KTexts.termsOfUse,style: Theme.of(context).textTheme.bodySmall!.apply(
                            color: dark?Colors.white:Colors.black,
                            decoration: TextDecoration.underline,
                            decorationColor: dark?Colors.white:Colors.black,
@@ -121,11 +123,11 @@ class Signup extends StatelessWidget
                      ),)
                    ],
                  ),
-                 SizedBox(height: KSizes.spaceBtwSections,),
+                 const SizedBox(height: KSizes.spaceBtwSections,),
                  SizedBox(width: double.infinity,child: ElevatedButton(onPressed: (){
                    postdata(fname.text.toString(), lname.text.toString(), email.text.toString(), phone.text.toString(), pass.text.toString());
-                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginState()));
-                 }, child: Text(KTexts.createAccount)),),
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const LoginState()));
+                 }, child: const Text(KTexts.createAccount)),),
                  const SizedBox(height: KSizes.spaceBtwSections,),
                  Row(
                    mainAxisAlignment: MainAxisAlignment.center,
@@ -148,7 +150,7 @@ class Signup extends StatelessWidget
                      ),
                    ],
                  ),
-                 SizedBox(
+                 const SizedBox(
                    height: KSizes.spaceBtwSections,
                  ),
                  Row(

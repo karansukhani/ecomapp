@@ -5,6 +5,8 @@ import '../constants/add_addressformat.dart';
 // import 'package:cupertino_icons/cupertino_icons.dart';
 
 class Addnewaddress extends StatelessWidget {
+  const Addnewaddress({super.key});
+
   @override
   Widget build(BuildContext context) {
 
