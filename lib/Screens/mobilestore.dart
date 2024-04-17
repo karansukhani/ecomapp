@@ -98,6 +98,7 @@ class MobileStore extends StatelessWidget {
           ),
           const Divider(color: Colors.white,),
           Wrap(
+            runSpacing: 4,
             spacing: 10,
             crossAxisAlignment: WrapCrossAlignment.start,
             children: [

@@ -95,137 +95,133 @@ class PerfumeStore extends StatelessWidget {
             ),
           ),
           const Divider(color: Colors.white,),
-          Column(
+          Wrap(
+            spacing: 10,
+            runSpacing: 4,
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Row(
-                children: [
-                  Container(
-                    height: 50,
-                    width: 200,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Row(
+              Container(
+                height: 50,
+                width: 200,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 30,
+                      width: 60,
+                      padding: const EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                          color: dark ? Colors.black : Colors.white,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Center(
+                        child: Image.asset("asset/logo/denver_logo.jpeg"),
+                      ),
+                    ),
+                    Column(
                       children: [
-                        Container(
-                          height: 30,
-                          width: 60,
-                          padding: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                              color: dark ? Colors.black : Colors.white,
-                              borderRadius: BorderRadius.circular(100)),
-                          child: Center(
-                            child: Image.asset("asset/logo/denver_logo.jpeg"),
-                          ),
-                        ),
-                        Column(
-                          children: [
-                            const Text("Denver",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "300 Products",
-                              style: Theme.of(context).textTheme.bodySmall,
-                            )
-                          ],
+                        const Text("Denver",
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        Text(
+                          "300 Products",
+                          style: Theme.of(context).textTheme.bodySmall,
                         )
                       ],
-                    ),
-                  ),
-                  Container(
-                    height: 50,
-                    width: 200,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Row(
-                      children: [
-                        Container(
-                            height: 30,
-                            width: 60,
-                            padding: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                                color: dark ? Colors.black : Colors.white,
-                                borderRadius: BorderRadius.circular(100)),
-                            child: Center(
-                                child: Image.asset("asset/logo/919paris.jpeg"))),
-                        Column(
-                          children: [
-                            const Text("919 PARIS",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "200 Products",
-                              style: Theme.of(context).textTheme.bodySmall,
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ],
+                    )
+                  ],
+                ),
               ),
-              Row(
-                children: [
-                  Container(
-                    height: 50,
-                    width: 200,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Row(
+              Container(
+                height: 50,
+                width: 200,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Row(
+                  children: [
+                    Container(
+                        height: 30,
+                        width: 60,
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            color: dark ? Colors.black : Colors.white,
+                            borderRadius: BorderRadius.circular(100)),
+                        child: Center(
+                            child: Image.asset("asset/logo/919paris.jpeg"))),
+                    Column(
                       children: [
-                        Container(
-                            height: 30,
-                            width: 60,
-                            padding: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                                color: dark ? Colors.black : Colors.white,
-                                borderRadius: BorderRadius.circular(100)),
-                            child:
-                                Center(child: Image.asset("asset/logo/axe.jpeg"))),
-                        Column(
-                          children: [
-                            const Text("AXE",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "200 Products",
-                              style: Theme.of(context).textTheme.bodySmall,
-                            )
-                          ],
+                        const Text("919 PARIS",
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        Text(
+                          "200 Products",
+                          style: Theme.of(context).textTheme.bodySmall,
                         )
                       ],
-                    ),
-                  ),
-                  Container(
-                    height: 50,
-                    width: 200,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Row(
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                height: 50,
+                width: 200,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Row(
+                  children: [
+                    Container(
+                        height: 30,
+                        width: 60,
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            color: dark ? Colors.black : Colors.white,
+                            borderRadius: BorderRadius.circular(100)),
+                        child:
+                            Center(child: Image.asset("asset/logo/axe.jpeg"))),
+                    Column(
                       children: [
-                        Container(
-                            height: 30,
-                            width: 60,
-                            padding: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                                color: dark ? Colors.black : Colors.white,
-                                borderRadius: BorderRadius.circular(100)),
-                            child:
-                                Center(child: Image.asset("asset/logo/ajmal.png"))),
-                        Column(
-                          children: [
-                            const Text("Ajmal",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "150 Products",
-                              style: Theme.of(context).textTheme.bodySmall,
-                            )
-                          ],
+                        const Text("AXE",
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        Text(
+                          "200 Products",
+                          style: Theme.of(context).textTheme.bodySmall,
                         )
                       ],
-                    ),
-                  ),
-                ],
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                height: 50,
+                width: 200,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Row(
+                  children: [
+                    Container(
+                        height: 30,
+                        width: 60,
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            color: dark ? Colors.black : Colors.white,
+                            borderRadius: BorderRadius.circular(100)),
+                        child:
+                            Center(child: Image.asset("asset/logo/ajmal.png"))),
+                    Column(
+                      children: [
+                        const Text("Ajmal",
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        Text(
+                          "150 Products",
+                          style: Theme.of(context).textTheme.bodySmall,
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
             ],
           ),

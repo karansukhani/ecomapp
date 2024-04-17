@@ -99,6 +99,7 @@ class AccesoriesStore extends StatelessWidget {
           const Divider(color: Colors.white,),
           Wrap(
             spacing: 10,
+            runSpacing: 4,
             crossAxisAlignment: WrapCrossAlignment.start,
             children: [
               Container(

@@ -42,13 +42,16 @@ class LoginState extends StatefulWidget {
 class _LoginStateState extends State<LoginState> {
   // const LoginState({super.key});
   var mailcontroller = TextEditingController();
+  final formKey=GlobalKey<FormState>();
 
   var passcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> _scaffoldKey=GlobalKey<ScaffoldState>();
     final dark = KHelperFunctions.isDarkMode(context);
     return Scaffold(
+      key: _scaffoldKey,
         body: SingleChildScrollView(
             child: Padding(
           padding: const EdgeInsets.all(8),
@@ -74,11 +77,12 @@ class _LoginStateState extends State<LoginState> {
               )
             ]),
             Form(
+              key: formKey,
                 child: Column(
               children: [
                 TextFormField(
                   validator: (value) {
-                    if ( value!.isEmpty || RegExp('[a-z A-Z]+@').hasMatch(value)) {
+                    if ( value!.isEmpty || RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}').hasMatch(value)) {
                       return 'Please enter mail id';
                     }
                     return null;
