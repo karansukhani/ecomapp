@@ -1,4 +1,5 @@
 import 'dart:convert';
+// import 'dart:js';
 import 'package:ecommerceapp/constants/colors.dart';
 import 'package:ecommerceapp/constants/sizes.dart';
 import 'package:ecommerceapp/constants/text_strings.dart';
@@ -8,26 +9,55 @@ import 'package:ecommerceapp/navigation_bar.dart';
 import 'package:ecommerceapp/Screens/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart'as http;
+void showAlertDialog(BuildContext context, String message) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text("Alert"),
+        content: Text(message),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text("OK"),
+          ),
+        ],
+      );
+    },
+  );
+}
 
-
-postdata(String email,String pass)
-async{
-  final uri = Uri.parse("https://e-com.iappsolution.tech/api/user/login");
-  http.Response response=await http.post(uri,body:{
-    'email':email,
-    'password':pass
-  });
-  try {
-    if (response.statusCode == 200) {
-      print(jsonDecode(response.body));
+void ValidateandSubmit(BuildContext context,String email,String pass) {
+  if(email.isEmpty || pass.isEmpty)
+    {
+      showAlertDialog(context, "Please enter E-mail and Password");
     }
-    else {
-      print("failed");
+  else {
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (context) => const Navigationmenu()));
+    postdata(email, pass) async {
+      final uri = Uri.parse("https://e-com.iappsolution.tech/api/user/login");
+      http.Response response = await http.post(uri, body: {
+        'email': email,
+        'password': pass
+      });
+      try {
+        if (response.statusCode == 200) {
+          print(jsonDecode(response.body));
+        }
+        else {
+          print("failed");
+        }
+      }
+      catch (e) {
+        print(e);
+      }
     }
-  }
-  catch(e)
-  {
-    print(e);
+    postdata(email, pass);
   }
 }
 // ignore: must_be_immutable
@@ -135,11 +165,8 @@ class _LoginStateState extends State<LoginState> {
                     width: double.infinity,
                     child: ElevatedButton(
                         onPressed: () {
-                          postdata(mailcontroller.text.toString(), passcontroller.text.toString());
-                         Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Navigationmenu()));
+                          ValidateandSubmit(context,mailcontroller.text.toString(), passcontroller.text.toString());
+
                         },
                         child: const Text(KTexts.signIn))),
                 const SizedBox(
